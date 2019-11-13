@@ -1,0 +1,15 @@
+book_filename: "EDAV Final Project"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files: [
+ "index.Rmd",
+ "pages/data_sources.Rmd",
+ "pages/data_transformation.Rmd",
+ "pages/missing_values.Rmd",
+ "pages/results.Rmd",
+ "pages/interactive_component.Rmd",
+ "pages/conclusion.Rmd",
+ "references.Rmd"
+]

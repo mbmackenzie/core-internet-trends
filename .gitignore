@@ -1,0 +1,17 @@
+# MacOS
+.DS_Store
+
+# VS Code
+.vscode
+*.code-workspace
+
+# R
+*.Rproj
+*.RData
+.Rproj.user
+.Rhistory
+
+# Bookdown
+_book/
+
+# Project
