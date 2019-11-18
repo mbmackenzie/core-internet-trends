@@ -1,0 +1,71 @@
+---
+title: "Initial Look"
+author: "Matt Mackenzie"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+```
+
+```{r}
+library(tidyverse)
+data <- haven::read_sav("../../data/raw/core_trends_2018.sav")
+```
+
+### Age distribution
+
+```{r}
+intfreq_lvls <- c('Almost constantly', 
+                  'Several times a day', 
+                  'About once a week', 
+                  'Several times a week', 
+                  'Less than several times a week', 
+                  'Does not know', 
+                  'Refused')
+
+internet_freq <- as.factor(data$intfreq)
+levels(internet_freq) <- intfreq_lvls
+data$intfreq_names <- internet_freq
+
+data %>%
+  select(age, intfreq, intfreq_names) %>%
+  filter(age <= 97, intfreq <= 5) %>%
+  mutate(intfreq_names = fct_rev(intfreq_names), 
+         age = as.integer(age)) %>%
+  ggplot(aes(intfreq_names, age)) + 
+  geom_boxplot() + 
+  coord_flip() + 
+  labs(title = 'What is the distribution of ages for \ndifferent amounts of internet usage?',
+       x = '', 
+       y = 'Age')
+  
+```
+
+
+### User base for different apps
+
+```{r}
+data %>%
+  select(respid, contains("web1")) %>%
+  rename(Twitter = web1a,
+         Instagram = web1b,
+         Facebook = web1c,
+         Snapchat = web1d,
+         YouTube = web1e,
+         WhatsApp = web1f,
+         Pinterest = web1g,
+         LinkedIn = web1h
+  ) %>%
+  gather(app, value, -respid, na.rm = TRUE) %>%
+  filter(value <= 2) %>%
+  group_by(app) %>%
+  summarise(pct_use = sum(value == 1) / n()) %>%
+  mutate(app = fct_reorder(app, pct_use)) %>%
+  ggplot(aes(app, pct_use)) + 
+  geom_col() + 
+  coord_flip() +  
+  labs(title = 'What percent of people use certain apps?',
+       x = "", 
+       y = '% People')
+```
