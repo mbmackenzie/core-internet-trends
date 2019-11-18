@@ -1,8 +1,8 @@
 --- 
-title: "EDAV Final 2019"
+title: "Analysis of Internet Core Trends"
 author: "Woo Jin Kim, Matt Mackenzie, Mamunur Rashid"
 date: "`r Sys.Date()`"
-description: "[Book description]"
+description: "The Internet Core Trends survey contains information of how americans view and use the internet."
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
