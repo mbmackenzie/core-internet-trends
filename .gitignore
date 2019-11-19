@@ -16,7 +16,6 @@ _book/
 
 # Project
 .env
-
 analysis/initial/
 !analysis/initial/*.R
 !analysis/initial/*.Rmd

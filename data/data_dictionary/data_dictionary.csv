@@ -1,0 +1,612 @@
+﻿year,original_name,new_name,question,category,value,meaning
+2018,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,1,Yes
+2018,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,2,No
+2018,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,8,Don't know
+2018,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,9,Refused
+2018,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,1,Yes
+2018,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,2,No
+2018,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,8,Don't know
+2018,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,9,Refused
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,1,Almost constantly
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,2,Several times a day
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,3,About once a day
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,4,Several times a week
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,5,Less often
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,8,Don't know
+2018,intfreq,internet.freq,About how often do you use the internet,Internet,9,Refused
+2018,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,1,Yes
+2018,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,2,No
+2018,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,8,Don't know
+2018,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,9,Refused
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,1,Dial-up
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,2,Higher-speed
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,3,Both
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,4,Access internet only using cell phone or tablet
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,5,No home internet access
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,8,Don't know
+2018,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,9,Refused
+2018,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,1,"Yes, dial-up"
+2018,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,2,"No, higher speed connection"
+2018,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,8,Don't know
+2018,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,9,Refused
+2018,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,1,Yes
+2018,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,2,No
+2018,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,8,Don't know
+2018,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,9,Refused
+2018,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,1,"Yes, smartphone"
+2018,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,2,"No, not a smartphone"
+2018,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,8,Don't know
+2018,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,9,Refused
+2018,snsint2,sm.use,"Do you ever use social media sites like Facebook, Twitter or Instagram? ",Social Media,1,Yes
+2018,snsint2,sm.use,"Do you ever use social media sites like Facebook, Twitter or Instagram? ",Social Media,2,No
+2018,snsint2,sm.use,"Do you ever use social media sites like Facebook, Twitter or Instagram? ",Social Media,8,Don't know
+2018,snsint2,sm.use,"Do you ever use social media sites like Facebook, Twitter or Instagram? ",Social Media,9,Refused
+2018,device1b,device.tablet,Do you have a tablet computer?,Devices,1,Yes
+2018,device1b,device.tablet,Do you have a tablet computer?,Devices,2,No
+2018,device1b,device.tablet,Do you have a tablet computer?,Devices,8,Don't know
+2018,device1b,device.tablet,Do you have a tablet computer?,Devices,9,Refused
+2018,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,1,Yes
+2018,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,2,No
+2018,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,8,Don't know
+2018,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,9,Refused
+2018,device1d,device.game,Do you have a game console?,Devices,1,Yes
+2018,device1d,device.game,Do you have a game console?,Devices,2,No
+2018,device1d,device.game,Do you have a game console?,Devices,8,Don't know
+2018,device1d,device.game,Do you have a game console?,Devices,9,Refused
+2018,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,1,Yes
+2018,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,2,No
+2018,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,8,Don't know
+2018,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,9,Refused
+2018,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,1,Yes
+2018,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,2,No
+2018,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,8,Don't know
+2018,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,9,Refused
+2018,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,1,Yes
+2018,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,2,No
+2018,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,8,Don't know
+2018,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,9,Refused
+2018,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,1,Yes
+2018,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,2,No
+2018,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,8,Don't know
+2018,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,9,Refused
+2018,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,1,Yes
+2018,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,2,No
+2018,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,8,Don't know
+2018,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,9,Refused
+2018,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,1,Yes
+2018,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,2,No
+2018,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,8,Don't know
+2018,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,9,Refused
+2018,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,1,Yes
+2018,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,2,No
+2018,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,8,Don't know
+2018,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,9,Refused
+2018,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,1,Yes
+2018,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,2,No
+2018,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,8,Don't know
+2018,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,9,Refused
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,1,Almost constantly
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,2,Several times a day
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,3,About once a day
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,4,Several times a week
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,5,Less often
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,8,Don't know
+2018,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,9,Refused
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,1,Almost constantly
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,2,Several times a day
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,3,About once a day
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,4,Several times a week
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,5,Less often
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,8,Don't know
+2018,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,9,Refused
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,1,Almost constantly
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,2,Several times a day
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,3,About once a day
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,4,Several times a week
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,5,Less often
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,8,Don't know
+2018,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,9,Refused
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,1,Almost constantly
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,2,Several times a day
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,3,About once a day
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,4,Several times a week
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,5,Less often
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,8,Don't know
+2018,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,9,Refused
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,1,Almost constantly
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,2,Several times a day
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,3,About once a day
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,4,Several times a week
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,5,Less often
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,8,Don't know
+2018,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,9,Refused
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,1,Very hard
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,2,Somewhat hard
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,3,Not too hard
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,4,Not hard at all
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,5,Impossible
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,6,Do not use / Do not have
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,8,Don't know
+2018,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,9,Refused
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,1,Very hard
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,2,Somewhat hard
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,3,Not too hard
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,4,Not hard at all
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,5,Impossible
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,6,Do not use / Do not have
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,8,Don't know
+2018,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,9,Refused
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,1,Very hard
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,2,Somewhat hard
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,3,Not too hard
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,4,Not hard at all
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,5,Impossible
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,6,Do not use / Do not have
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,8,Don't know
+2018,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,9,Refused
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,1,Very hard
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,2,Somewhat hard
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,3,Not too hard
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,4,Not hard at all
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,5,Impossible
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,6,Do not use / Do not have
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,8,Don't know
+2018,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,9,Refused
+2018,pial11,society.overall,"Overall, would you say the internet has mostly been a good or bad thing for society?",Society,1,Good thing
+2018,pial11,society.overall,"Overall, would you say the internet has mostly been a good or bad thing for society?",Society,2,Bad thing
+2018,pial11,society.overall,"Overall, would you say the internet has mostly been a good or bad thing for society?",Society,3,Some of both
+2018,pial11,society.overall,"Overall, would you say the internet has mostly been a good or bad thing for society?",Society,8,Don’t know
+2018,pial11,society.overall,"Overall, would you say the internet has mostly been a good or bad thing for society?",Society,9,Refused
+2018,pial11a,society.text.exists,What is the main reason you think the internet has been a good or bad thing for society? ,Society,1,Answered
+2018,`pial11ao@`,society.text,What is the main reason you think the internet has been a good or bad thing for society? ,Society,TXT,
+2018,pial12,society.personal,"Personally, would you say the internet has mostly been a good or bad thing for society?",Society,1,Good thing
+2018,pial12,society.personal,"Personally, would you say the internet has mostly been a good or bad thing for society?",Society,2,Bad thing
+2018,pial12,society.personal,"Personally, would you say the internet has mostly been a good or bad thing for society?",Society,3,Some of both
+2018,pial12,society.personal,"Personally, would you say the internet has mostly been a good or bad thing for society?",Society,8,Don’t know
+2018,pial12,society.personal,"Personally, would you say the internet has mostly been a good or bad thing for society?",Society,9,Refused
+2018,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,1 to 96,Exact number
+2018,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,0,None
+2018,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,97,97 or more
+2018,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,98,Don’t know
+2018,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,99,Refused
+2018,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,1,Yes
+2018,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,2,No
+2018,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,8,Don't know
+2018,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,9,Refused
+2018,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,1,Yes
+2018,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,2,No
+2018,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,8,Don't know
+2018,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,9,Refused
+2018,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,1,Yes
+2018,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,2,No
+2018,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,8,Don't know
+2018,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,9,Refused
+2018,sex,sex,,Demographic,1,Male
+2018,sex,sex,,Demographic,2,Female
+2018,age,age,What is your age?,Demographic,1 to 96,Exact age
+2018,age,age,What is your age?,Demographic,97,97 or older
+2018,age,age,What is your age?,Demographic,98,Don’t know
+2018,age,age,What is your age?,Demographic,99,Refused
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,1,Married
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,2,Living with a partner
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,3,Divorced
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,4,Separated
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,5,Widowed
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,6,Never been married
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,8,Don’t know
+2018,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,9,Refused
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,1,Less than high school
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,2,High school incomplete
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,3,High school graduate
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,4,"Some college, no degree"
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,5,Two-year associate degree
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,6,Four-year Bachelor’s degree
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,7,Some postgraduate or professional schooling
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,8,Postgraduate or professional degree
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,98,Don’t know
+2018,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,99,Refused
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,1,Employed full-time
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,2,Employed part-time
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,3,Retired
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,4,Not employed for pay
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,5,Have own business/self-employed
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,6,Disabled
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,7,Student
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,8,Other
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,98,Don't know
+2018,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,99,Refused
+2018,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,1,Yes
+2018,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,2,No
+2018,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,8,Don't know
+2018,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,9,Refused
+2018,racecmb,race,Which of the following describes your race? ,Demographic,1,White
+2018,racecmb,race,Which of the following describes your race? ,Demographic,2,Black or African-American
+2018,racecmb,race,Which of the following describes your race? ,Demographic,3,Asian or Asian-American
+2018,racecmb,race,Which of the following describes your race? ,Demographic,4,Mixed race
+2018,racecmb,race,Which of the following describes your race? ,Demographic,5,Some other race
+2018,racecmb,race,Which of the following describes your race? ,Demographic,9,Don't know/Refused
+2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,1,U.S.
+2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,2,Puerto Rico
+2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,3,Another county
+2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,8,Don't know
+2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,9,Refused
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,1,"Less than $10,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,2,"10 to under $20,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,3,"20 to under $30,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,4,"30 to under $40,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,5,"40 to under $50,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,6,"50 to under $75,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,7,"75 to under $100,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,8,"100 to under $150,000"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,9,"$150,000 or more"
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,98,Don't know
+2018,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,99,Refused
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,1,Republican
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,2,Democrat
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,3,Independent
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,4,No preference
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,5,Other party
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,8,Don't know
+2018,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,9,Refused
+2018,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,1,Republican
+2018,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,2,Democrat
+2018,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,8,Don't know
+2018,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,9,Refused
+2018,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,1 to 7,Exact people
+2018,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,8,8 or more
+2018,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,9,Don’t know/Refused
+2018,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,1 to 7,Exact people
+2018,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,8,8 or more
+2018,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,9,Don’t know/Refused
+2018,ql1,working_cell,Do you have a working cell phone?,Devices,1,"Yes, have cell phone"
+2018,ql1,working_cell,Do you have a working cell phone?,Devices,2,"No, do not"
+2018,ql1,working_cell,Do you have a working cell phone?,Devices,9,Don’t know/Refused
+2018,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,1,"Yes, someone in household has cell phone"
+2018,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,2,No
+2018,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,9,Don’t know/Refused
+2018,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,1,Yes home telephone
+2018,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,2,"No, home telephone"
+2018,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,9,Don't know/Refused 
+2018,weight,weight,,Other,,
+2018,respid,respid,,Identifier,,
+2018,sample,sample,How survey was done.,Identifier,1,Landline
+2018,sample,sample,How survey was done.,Identifier,2,Cell phone
+2018,comp,comp,,Identifier,1,Complete
+2018,comp,comp,,Identifier,2,Non-complete
+2018,comp,comp,,Identifier,3,Over Quota Complete
+2018,comp,comp,,Identifier,4,Screen-outs / Contacts
+2018,int_date,int_date,"Interview date (NOTE: Final interviewer date, adjusted for interviews that are done early in the AM)",Identifier,,
+2018,lang,lang,Language the interview was conducted in.,Identifier,1,English
+2018,lang,lang,Language the interview was conducted in.,Identifier,2,Spanish
+2018,cregion,cregion,Regionfrom respondent reported zip code,Identifier,1,Northeast
+2018,cregion,cregion,Regionfrom respondent reported zip code,Identifier,2,Midwest
+2018,cregion,cregion,Regionfrom respondent reported zip code,Identifier,3,South
+2018,cregion,cregion,Regionfrom respondent reported zip code,Identifier,4,West
+2018,state,state,State from respondent reported zip code,Identifier,,FIPS
+2018,density,density,Population density from reported zip code,Demographic,1 to 5,Pop density quitiles by zipcode
+2018,usr,usr,USR from respondent reported zip code.,Demographic,U,Urban
+2018,usr,usr,USR from respondent reported zip code.,Demographic,S,Suburban
+2018,usr,usr,USR from respondent reported zip code.,Demographic,R,Rural
+2019,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,1,Yes
+2019,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,2,No
+2019,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,8,Don't know
+2019,eminuse,internet.use,"Do you use the internet or email, at least occasionally? ",Internet,9,Refused
+2019,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,1,Yes
+2019,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,2,No
+2019,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,8,Don't know
+2019,intmob,internet.mobile,"Do you access the internet on a cell phone, tablet or other mobile handheld device, at least occasionally? ",Internet,9,Refused
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,1,Almost constantly
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,2,Several times a day
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,3,About once a day
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,4,Several times a week
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,5,Less often
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,8,Don't know
+2019,intfreq,internet.freq,About how often do you use the internet,Internet,9,Refused
+2019,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,1,Yes
+2019,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,2,No
+2019,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,8,Don't know
+2019,home4nw,service.subscribe,Do you currently subscribe to internet service at HOME?,Internet,9,Refused
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,1,Dial-up
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,2,Higher-speed
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,3,Both
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,4,Access internet only using cell phone or tablet
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,5,No home internet access
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,8,Don't know
+2019,bbhome1,service.speed,"Do you subscribe to dial-up internet service at home or a higher-speed broadband service such as DSL, cable, or fiber optic service? ",Internet,9,Refused
+2019,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,1,"Yes, dial-up"
+2019,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,2,"No, higher speed connection"
+2019,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,8,Don't know
+2019,bbhome2,service.confirm,"Just to confirm, you use a dial-up connection to the internet at home, and not a higher-speed broadband connection? ",Internet,9,Refused
+2019,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,1,Yes
+2019,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,2,No
+2019,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,8,Don't know
+2019,device1a,device.cellphone,"Next, do you have a cell phone, or not? ",Devices,9,Refused
+2019,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,1,"Yes, smartphone"
+2019,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,2,"No, not a smartphone"
+2019,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,8,Don't know
+2019,smart2,device.cellphone.smart,"Is your cell phone a smartphone, or not? ",Devices,9,Refused
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,1,Mostly on cell phone
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,2,Mostly on something else
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,3,Both equally
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,4,Depends
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,8,Don't know
+2019,q20,internet.method,"Overall, when you use the internet, do you do that mostly using your cell phone or mostly using some other device?",Internet,9,Refused
+2019,bbsmart1,service.past,Did you EVER at some point in the past have a broadband internet subscription at home? ,Internet,1,"Yes, had broadband"
+2019,bbsmart1,service.past,Did you EVER at some point in the past have a broadband internet subscription at home? ,Internet,2,"No, did not have broadband"
+2019,bbsmart1,service.past,Did you EVER at some point in the past have a broadband internet subscription at home? ,Internet,8,Don't know
+2019,bbsmart1,service.past,Did you EVER at some point in the past have a broadband internet subscription at home? ,Internet,9,Refused
+2019,bbsmart2,service.want,Would you like to have high-speed internet at home?,Internet,1,"Yes, interested"
+2019,bbsmart2,service.want,Would you like to have high-speed internet at home?,Internet,2,"No, not interested"
+2019,bbsmart2,service.want,Would you like to have high-speed internet at home?,Internet,8,Don't know
+2019,bbsmart2,service.want,Would you like to have high-speed internet at home?,Internet,9,Refused
+2019,bbsmart3a,service.reason.subscription,Reasons why you do not have high-speed internet at home… The monthly cost of a home broadband subscription is too expensive?,Internet,1,Yes
+2019,bbsmart3a,service.reason.subscription,Reasons why you do not have high-speed internet at home… The monthly cost of a home broadband subscription is too expensive?,Internet,2,No
+2019,bbsmart3a,service.reason.subscription,Reasons why you do not have high-speed internet at home… The monthly cost of a home broadband subscription is too expensive?,Internet,8,Don't know
+2019,bbsmart3a,service.reason.subscription,Reasons why you do not have high-speed internet at home… The monthly cost of a home broadband subscription is too expensive?,Internet,9,Refused
+2019,bbsmart3b,service.reason.computer,Reasons why you do not have high-speed internet at home… The cost of a computer is too expensive?,Internet,1,Yes
+2019,bbsmart3b,service.reason.computer,Reasons why you do not have high-speed internet at home… The cost of a computer is too expensive?,Internet,2,No
+2019,bbsmart3b,service.reason.computer,Reasons why you do not have high-speed internet at home… The cost of a computer is too expensive?,Internet,8,Don't know
+2019,bbsmart3b,service.reason.computer,Reasons why you do not have high-speed internet at home… The cost of a computer is too expensive?,Internet,9,Refused
+2019,bbsmart3c,service.reason.smartphone,Reasons why you do not have high-speed internet at home… Your smartphone lets you do everything online that you need to do?,Internet,1,Yes
+2019,bbsmart3c,service.reason.smartphone,Reasons why you do not have high-speed internet at home… Your smartphone lets you do everything online that you need to do?,Internet,2,No
+2019,bbsmart3c,service.reason.smartphone,Reasons why you do not have high-speed internet at home… Your smartphone lets you do everything online that you need to do?,Internet,8,Don't know
+2019,bbsmart3c,service.reason.smartphone,Reasons why you do not have high-speed internet at home… Your smartphone lets you do everything online that you need to do?,Internet,9,Refused
+2019,bbsmart3d,service.reason.options,Reasons why you do not have high-speed internet at home… You have other options for internet access outside of your home?,Internet,1,Yes
+2019,bbsmart3d,service.reason.options,Reasons why you do not have high-speed internet at home… You have other options for internet access outside of your home?,Internet,2,No
+2019,bbsmart3d,service.reason.options,Reasons why you do not have high-speed internet at home… You have other options for internet access outside of your home?,Internet,8,Don't know
+2019,bbsmart3d,service.reason.options,Reasons why you do not have high-speed internet at home… You have other options for internet access outside of your home?,Internet,9,Refused
+2019,bbsmart3e,service.reason.availability,"Reasons why you do not have high-speed internet at home… Broadband service is not available where you live, or is not available at an acceptable speed?",Internet,1,Yes
+2019,bbsmart3e,service.reason.availability,"Reasons why you do not have high-speed internet at home… Broadband service is not available where you live, or is not available at an acceptable speed?",Internet,2,No
+2019,bbsmart3e,service.reason.availability,"Reasons why you do not have high-speed internet at home… Broadband service is not available where you live, or is not available at an acceptable speed?",Internet,8,Don't know
+2019,bbsmart3e,service.reason.availability,"Reasons why you do not have high-speed internet at home… Broadband service is not available where you live, or is not available at an acceptable speed?",Internet,9,Refused
+2019,bbsmart3f,service.reason.other,Reasons why you do not have high-speed internet at home… Some other reason I haven’t already mentioned?,Internet,1,Yes
+2019,bbsmart3f,service.reason.other,Reasons why you do not have high-speed internet at home… Some other reason I haven’t already mentioned?,Internet,2,No
+2019,bbsmart3f,service.reason.other,Reasons why you do not have high-speed internet at home… Some other reason I haven’t already mentioned?,Internet,8,Don't know
+2019,bbsmart3f,service.reason.other,Reasons why you do not have high-speed internet at home… Some other reason I haven’t already mentioned?,Internet,9,Refused
+2019,`bbsmart3foe@`,service.reason.other.text,Reasons why you do not have high-speed internet at home… Some other reason I haven’t already mentioned?,Internet,TXT,
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,1,Subscription too expensive
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,2,Computer too expensive
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,3,Smartphone does everything
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,4,Other options
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,5,Not available/acceptable
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,6,Some other reason
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,8,Don't know
+2019,bbsmart4,service.reason.biggest,"Thinking of the reasons why you do not have broadband service at home, which of them is the MOST important?",Internet,9,Refused
+2019,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,1,Yes
+2019,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,2,No
+2019,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,8,Don't know
+2019,web1a,sm.use.twitter,Do you ever use Twitter?,Social Media,9,Refused
+2019,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,1,Yes
+2019,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,2,No
+2019,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,8,Don't know
+2019,web1b,sm.use.instagram,Do you ever use Instagram?,Social Media,9,Refused
+2019,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,1,Yes
+2019,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,2,No
+2019,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,8,Don't know
+2019,web1c,sm.use.facebook,Do you ever use Facebook?,Social Media,9,Refused
+2019,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,1,Yes
+2019,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,2,No
+2019,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,8,Don't know
+2019,web1d,sm.use.snapchat,Do you ever use Snapchat?,Social Media,9,Refused
+2019,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,1,Yes
+2019,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,2,No
+2019,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,8,Don't know
+2019,web1e,sm.use.youtube,Do you ever use YouTube?,Social Media,9,Refused
+2019,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,1,Yes
+2019,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,2,No
+2019,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,8,Don't know
+2019,web1f,sm.use.whatsapp,Do you ever use WhatsApp?,Social Media,9,Refused
+2019,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,1,Yes
+2019,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,2,No
+2019,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,8,Don't know
+2019,web1g,sm.use.pintrest,Do you ever use Pinterest?,Social Media,9,Refused
+2019,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,1,Yes
+2019,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,2,No
+2019,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,8,Don't know
+2019,web1h,sm.use.linkedin,Do you ever use LinkedIn?,Social Media,9,Refused
+2019,web1i,sm.use.reddit,Do you ever use Reddit?,Social Media,1,Yes
+2019,web1i,sm.use.reddit,Do you ever use Reddit?,Social Media,2,No
+2019,web1i,sm.use.reddit,Do you ever use Reddit?,Social Media,8,Don't know
+2019,web1i,sm.use.reddit,Do you ever use Reddit?,Social Media,9,Refused
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,1,Almost constantly
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,2,Several times a day
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,3,About once a day
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,4,Several times a week
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,5,Less often
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,8,Don't know
+2019,sns2a,sm.freq.twitter,About how often do you visit or use Twitter?,Social Media,9,Refused
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,1,Almost constantly
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,2,Several times a day
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,3,About once a day
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,4,Several times a week
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,5,Less often
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,8,Don't know
+2019,sns2b,sm.freq.instagram,About how often do you visit or use Instagram?,Social Media,9,Refused
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,1,Almost constantly
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,2,Several times a day
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,3,About once a day
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,4,Several times a week
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,5,Less often
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,8,Don't know
+2019,sns2c,sm.freq.facebook,About how often do you visit or use Facebook?,Social Media,9,Refused
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,1,Almost constantly
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,2,Several times a day
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,3,About once a day
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,4,Several times a week
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,5,Less often
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,8,Don't know
+2019,sns2d,sm.freq.snapchat,About how often do you visit or use Snapchat?,Social Media,9,Refused
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,1,Almost constantly
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,2,Several times a day
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,3,About once a day
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,4,Several times a week
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,5,Less often
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,8,Don't know
+2019,sns2e,sm.freq.youtube,About how often do you visit or use YouTube?,Social Media,9,Refused
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,1,Very hard
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,2,Somewhat hard
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,3,Not too hard
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,4,Not hard at all
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,5,Impossible
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,6,Do not use / Do not have
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,8,Don't know
+2019,pial5a,depend.television,How hard would it be for you to give up your television?,Dependency,9,Refused
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,1,Very hard
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,2,Somewhat hard
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,3,Not too hard
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,4,Not hard at all
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,5,Impossible
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,6,Do not use / Do not have
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,8,Don't know
+2019,pial5b,depend.cellphone,How hard would it be for you to give up your cell phone or smartphone?,Dependency,9,Refused
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,1,Very hard
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,2,Somewhat hard
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,3,Not too hard
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,4,Not hard at all
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,5,Impossible
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,6,Do not use / Do not have
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,8,Don't know
+2019,pial5c,depend.internet,How hard would it be for you to give up the internet?,Dependency,9,Refused
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,1,Very hard
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,2,Somewhat hard
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,3,Not too hard
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,4,Not hard at all
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,5,Impossible
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,6,Do not use / Do not have
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,8,Don't know
+2019,pial5d,depend.sm,How hard would it be for you to give up social media?,Dependency,9,Refused
+2019,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,1 to 96,Exact number
+2019,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,0,None
+2019,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,97,97 or more
+2019,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,98,Don’t know
+2019,books1,books.read,"During the past 12 months, about how many books did you read either all or part of the way through?",Books,99,Refused
+2019,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,1,Yes
+2019,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,2,No
+2019,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,8,Don't know
+2019,books2a,books.printed,"Thinking about all of the books you have read in the past 12 months, were any of those printed books?",Books,9,Refused
+2019,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,1,Yes
+2019,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,2,No
+2019,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,8,Don't know
+2019,books2b,books.audio,"Thinking about all of the books you have read in the past 12 months, were any of those audio books?",Books,9,Refused
+2019,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,1,Yes
+2019,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,2,No
+2019,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,8,Don't know
+2019,books2c,books.ebook,"Thinking about all of the books you have read in the past 12 months, were any of those e-books?",Books,9,Refused
+2019,sex,sex,,Demographic,1,Male
+2019,sex,sex,,Demographic,2,Female
+2019,age,age,What is your age?,Demographic,1 to 96,Exact age
+2019,age,age,What is your age?,Demographic,97,97 or older
+2019,age,age,What is your age?,Demographic,98,Don’t know
+2019,age,age,What is your age?,Demographic,99,Refused
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,1,Married
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,2,Living with a partner
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,3,Divorced
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,4,Separated
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,5,Widowed
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,6,Never been married
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,8,Don’t know
+2019,marital,marital,"Are you currently married, living with a partner, divorced, separated, widowed, or have you never been married? ",Demographic,9,Refused
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,1,Less than high school
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,2,High school incomplete
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,3,High school graduate
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,4,"Some college, no degree"
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,5,Two-year associate degree
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,6,Four-year Bachelor’s degree
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,7,Some postgraduate or professional schooling
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,8,Postgraduate or professional degree
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,98,Don’t know
+2019,educ2,education,What is the highest level of school you have completed or the highest degree you have received? ,Demographic,99,Refused
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,1,Employed full-time
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,2,Employed part-time
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,3,Retired
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,4,Not employed for pay
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,5,Have own business/self-employed
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,6,Disabled
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,7,Student
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,8,Other
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,98,Don't know
+2019,emplnw,employment,"Are you now employed full-time, part-time, retired, or are you not employed for pay?",Demographic,99,Refused
+2019,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,1,Yes
+2019,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,2,No
+2019,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,8,Don't know
+2019,hisp,hispanic,"Are you of Hispanic, Latino, or Spanish origin, such as Mexican, Puerto Rican or Cuban?",Demographic,9,Refused
+2019,racecmb,race,Which of the following describes your race? ,Demographic,1,White
+2019,racecmb,race,Which of the following describes your race? ,Demographic,2,Black or African-American
+2019,racecmb,race,Which of the following describes your race? ,Demographic,3,Asian or Asian-American
+2019,racecmb,race,Which of the following describes your race? ,Demographic,4,Mixed race
+2019,racecmb,race,Which of the following describes your race? ,Demographic,5,Some other race
+2019,racecmb,race,Which of the following describes your race? ,Demographic,9,Don't know/Refused
+2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,1,U.S.
+2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,2,Puerto Rico
+2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,3,Another county
+2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,8,Don't know
+2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,9,Refused
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,1,"Less than $10,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,2,"10 to under $20,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,3,"20 to under $30,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,4,"30 to under $40,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,5,"40 to under $50,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,6,"50 to under $75,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,7,"75 to under $100,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,8,"100 to under $150,000"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,9,"$150,000 or more"
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,98,Don't know
+2019,inc,house.income,"What was your total family income from all sources, before taxes?",Demographic,99,Refused
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,1,Republican
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,2,Democrat
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,3,Independent
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,4,No preference
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,5,Other party
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,8,Don't know
+2019,party,pol.party,"In politics TODAY, do you consider yourself a Republican, Democrat, or independent?",Demographic,9,Refused
+2019,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,1,Republican
+2019,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,2,Democrat
+2019,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,8,Don't know
+2019,partyln,pol.lean,"As of today, do you lean more to the Republican Party or more to the Democratic Party?",Demographic,9,Refused
+2019,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,1 to 7,Exact people
+2019,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,8,8 or more
+2019,hh1,house.num_people,"How many people, including yourself, live in your household? ",Demographic,9,Don’t know/Refused
+2019,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,1 to 7,Exact people
+2019,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,8,8 or more
+2019,hh3,house.num_adults,"How many, including yourself, are adults, age 18 and older?",Demographic,9,Don’t know/Refused
+2019,ql1,working_cell,Do you have a working cell phone?,Devices,1,"Yes, have cell phone"
+2019,ql1,working_cell,Do you have a working cell phone?,Devices,2,"No, do not"
+2019,ql1,working_cell,Do you have a working cell phone?,Devices,9,Don’t know/Refused
+2019,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,1,"Yes, someone in household has cell phone"
+2019,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,2,No
+2019,ql1a,house.working_cell,Does anyone in your household have a working cell phone?,Devices,9,Don’t know/Refused
+2019,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,1,Yes home telephone
+2019,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,2,"No, home telephone"
+2019,qc1,house.not_cell,Is there at least one telephone INSIDE your home that is currently working and is not a cell phone?,Devices,9,Don't know/Refused 
+2019,weight,weight,,Other,,
+2019,respid,respid,,Identifier,,
+2019,sample,sample,How survey was done.,Identifier,1,Landline
+2019,sample,sample,How survey was done.,Identifier,2,Cell phone
+2019,comp,comp,,Identifier,1,Complete
+2019,comp,comp,,Identifier,2,Non-complete
+2019,comp,comp,,Identifier,3,Over Quota Complete
+2019,comp,comp,,Identifier,4,Screen-outs / Contacts
+2019,int_date,int_date,"Interview date (NOTE: Final interviewer date, adjusted for interviews that are done early in the AM)",Identifier,,
+2019,lang,lang,Language the interview was conducted in.,Identifier,1,English
+2019,lang,lang,Language the interview was conducted in.,Identifier,2,Spanish
+2019,cregion,cregion,Regionfrom respondent reported zip code,Identifier,1,Northeast
+2019,cregion,cregion,Regionfrom respondent reported zip code,Identifier,2,Midwest
+2019,cregion,cregion,Regionfrom respondent reported zip code,Identifier,3,South
+2019,cregion,cregion,Regionfrom respondent reported zip code,Identifier,4,West
+2019,state,state,State from respondent reported zip code,Identifier,,FIPS
+2019,density,density,Population density from reported zip code,Demographic,1 to 5,Pop density quitiles by zipcode
+2019,usr,usr,USR from respondent reported zip code.,Demographic,U,Urban
+2019,usr,usr,USR from respondent reported zip code.,Demographic,S,Suburban
+2019,usr,usr,USR from respondent reported zip code.,Demographic,R,Rural
+2019,device1b,device.tablet,Do you have a tablet computer?,Devices,1,Yes
+2019,device1b,device.tablet,Do you have a tablet computer?,Devices,2,No
+2019,device1b,device.tablet,Do you have a tablet computer?,Devices,8,Don't know
+2019,device1b,device.tablet,Do you have a tablet computer?,Devices,9,Refused
+2019,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,1,Yes
+2019,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,2,No
+2019,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,8,Don't know
+2019,device1c,device.pc,Do you have a desktop or laptop computer?,Devices,9,Refused
+2019,device1d,device.game,Do you have a game console?,Devices,1,Yes
+2019,device1d,device.game,Do you have a game console?,Devices,2,No
+2019,device1d,device.game,Do you have a game console?,Devices,8,Don't know
+2019,device1d,device.game,Do you have a game console?,Devices,9,Refused
