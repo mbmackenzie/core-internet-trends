@@ -89,4 +89,4 @@ econ_data <- state_pops %>%
   full_join(wage_data) %>%
   as_tibble()
 
-write_csv(econ_data, 'data/econ_data.csv')
+write_csv(econ_data, 'data/tidy/econ_data.csv')
