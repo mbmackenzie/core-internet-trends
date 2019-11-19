@@ -16,5 +16,3 @@ github-repo: mbmackenzie/edav-f19-final
 # Introduction {-}
 
 Introduction
-
-## Core Trend
