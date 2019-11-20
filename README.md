@@ -12,22 +12,21 @@ Exploratory Data Analysis and Visualization - Fall 2019
 ├── README.md
 ├── analysis
 │   ├── R
-│   │   └── r_scripts_here
 │   └── initial
-│       └── [name]_initial_look.Rmd
 ├── data
 │   ├── core_trends_2018_survey.docx
 │   ├── core_trends_2019_survey.docx
+│   ├── data_dictionary
 │   ├── raw
 │   │   ├── core_trends_2018.csv
 │   │   ├── core_trends_2018.sav
 │   │   ├── core_trends_2019.csv
-│   │   ├── core_trends_2019.sav
-│   │   └── raw_data_here
+│   │   └── core_trends_2019.sav
 │   └── tidy
-│       └── tidy_data_here
-|
+│       ├── core_trends.csv
+│       └── econ_data.csv
 └── BOOKDOWN_STUFF
+
 ```
 
 | Folder/File Name             | Description                                            |
@@ -38,5 +37,7 @@ Exploratory Data Analysis and Visualization - Fall 2019
 | data                         | Folder for storing raw and tidy data                   |
 | core_trends_XXXX_survey.docx | The questions by year that were asked to respondents   |
 | core_trends_XXXX.csv/sav     | RAW Core trends data by year (csv or sav)              |
+| core_trends.csv              | Combined 2018/19 data with renamed columns             |
+| econ_data.csv                | State level population, employment, wage data          |
 | BOOKDOWN_STUFF               | Represents other files needed to run and deploy report |
 
