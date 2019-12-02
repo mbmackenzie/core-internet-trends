@@ -45,6 +45,12 @@ htmltools::includeHTML("data/data_dictionary/Demographic.html")
 htmltools::includeHTML("data/data_dictionary/Devices.html")
 ```
 
+### Internet {-}
+
+```{r, echo=FALSE}
+htmltools::includeHTML("data/data_dictionary/Internet.html")
+```
+
 ### Social Media {-}
 
 ```{r, echo=FALSE}
