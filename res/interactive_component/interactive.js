@@ -1,0 +1,241 @@
+var width = 1000,
+    height = 800;
+var margin = {
+    top: 20,
+    right: 20,
+    bottom: 20,
+    left: 20
+};
+var svg = d3.select("#chart").append("svg").attr("width", width).attr("height", height);
+svg.append("g").attr("id", "map");
+var year = "2018",
+    social_media = "youtube";
+
+var projection = d3.geoAlbersUsa()
+    .translate([425, height / 3]) // translate to center of screen
+    .scale([1000]); // scale things down so see entire US
+
+var path = d3.geoPath()
+    .projection(projection); // tell path generator to use albersUsa projection
+
+var map_dataset = null;
+var social_dataset = null;
+
+//var lowColor = '#f9f9f9';
+//var highColor = '#bc2a66';
+var minVal = 0;
+var maxVal = 0;
+var w = 140,
+    h = 400;
+
+var lowColor = '#fff';
+//var highColor = '#bc2a66';
+var highColorConf = {
+    "youtube": "#bb0000",
+    "facebook": "#3B5998",
+    "instagram": "#125688",
+    "pintrest": "#cb2027",
+    "linkedin": "#007bb5",
+    "twitter": "#55ACEE ",
+    "snapchat": "#fffc00",
+    "whatsapp": "#25d366"
+};
+
+function drawLegend() {
+
+    var legend = svg.append("defs")
+        .append("svg:linearGradient")
+        .attr("id", "gradient")
+        .attr("x1", "100%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "100%")
+        .attr("spreadMethod", "pad");
+
+    legend.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", highColorConf[social_media])
+        .attr("stop-opacity", 1);
+
+    legend.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", lowColor)
+        .attr("stop-opacity", 1);
+
+    svg.append("rect")
+        .attr("id", "lgnd")
+        .attr("width", w - 100)
+        .attr("height", h)
+        .style("fill", "url(#gradient)")
+        .attr("transform", "translate(5,20)");
+
+    var y = d3.scaleLinear()
+        .range([h - 10, 0])
+        .domain([0, 100]);
+
+    var yAxis = d3.axisRight(y).ticks(10);
+
+    svg.append("g")
+        .attr("id", "grp_scale")
+        .attr("class", "y axis")
+        .attr("transform", "translate(5, 25)")
+        .call(yAxis);
+
+}
+
+function updateLegend() {
+
+    var legend = svg.select("#gradient");
+
+    if (legend.empty() == true) {
+        return;
+    }
+    legend.selectAll("stop").remove();
+
+    legend.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", highColorConf[social_media])
+        .attr("stop-opacity", 1);
+
+    legend.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", lowColor)
+        .attr("stop-opacity", 1);
+
+    svg.select("rect#lgnd")
+        .style("fill", "url(#gradient)");
+
+    /*
+			var y = d3.scaleLinear()
+				.range([h, 0])
+				.domain([minVal, maxVal]);
+
+			var yAxis = d3.axisRight(y).ticks(10);
+
+			svg.select("g#grp_scale")
+				.call(yAxis);	*/
+
+}
+
+
+function populateStat() {
+
+    var select_dataset = social_dataset.filter(sm => sm.year == year && sm.app == social_media);
+    for (var i = 0; i < map_dataset.length; i++) {
+        var state_id = Number(map_dataset[i].id);
+
+        var select_data = select_dataset.find(sm => sm.state_id == state_id);
+        map_dataset[i].select_data = select_data;
+    }
+
+    var div = d3.select("div#tooltip");
+    //minVal = d3.min(select_dataset.map(d=>d.user));
+    //maxVal = d3.max(select_dataset.map(d=>d.user));
+    var ramp = d3.scaleLinear().domain([0, 1]).range([lowColor, highColorConf[social_media]]);
+
+    svg.select("g#map")
+        .selectAll("path")
+        .data(map_dataset, d => d.id)
+        .on("mouseover", function (d) {
+            var html = "State: " + d.properties.name + "<br/>" +
+                "Social Media: " + social_media.charAt(0).toUpperCase() + social_media.slice(1) + "<br/>" +
+                "Year: " + year + "<br/>" +
+                "User: <strong>" + Number(Number(d.select_data.percent_use) * 100).toFixed(2) + "%</strong>" + "<br/>" +
+                "Total Respondents: <strong>" + d.select_data.total_respondents + "</strong>";
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+
+            var padX = d3.event.pageX;
+            var padY = d3.event.pageY - 30;
+
+            if (d3.selectAll(".book").classed("with-summary") == true) {
+                try {
+                    var sum_div = d3.select(".book .book-summary")
+                    var pxl = parseInt(sum_div.style("width"))
+                    padX = padX - pxl;
+
+                } catch (error) {}
+            }
+
+            div.html(html)
+                .style("left", padX + "px")
+                .style("top", padY + "px");
+
+        })
+        .on("mouseout", function (d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        })
+
+        .transition().duration(1500)
+        .style("fill", function (d) {
+            //console.log(d.id);
+            if (d.select_data) {
+                return ramp(d.select_data.percent_use);
+            } else {
+                return ramp(0);
+            }
+        });
+
+    updateLegend();
+
+}
+
+//load data from files
+d3.json("us-states.json").then(function (json) {
+    //console.log(json);
+
+    svg.select("g#map")
+        .selectAll("path")
+        .data(json.features, d => d.id)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .style("stroke", "#e0e0e0")
+        .style("stroke-width", "1")
+        .style("fill", "#000");
+
+    d3.json("state_social_media.json").then(function (social) {
+
+            social_dataset = social.data;
+            map_dataset = json.features;
+
+            populateStat();
+            drawLegend();
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+});
+
+
+socialMediaClickEvent = function () {
+
+    d3.selectAll(".fa").classed("active", false);
+    d3.select(this).classed("active", true);
+
+    social_media = this.attributes.media.value;
+    //console.log(social_media);
+    $("#spnSocialMedia").html(this.attributes.title.value);
+
+    populateStat();
+
+    event.preventDefault();
+    return false;
+}
+
+yearClickEvent = function () {
+
+    d3.selectAll(".lblyear").classed("active", false);
+    d3.select(this).classed("active", true);
+
+    year = this.attributes.year.value;
+    $("#spnYear").html(year);
+    populateStat();
+}
+
+d3.selectAll(".lblyear").on("click", yearClickEvent);
+d3.selectAll(".fa").on("click", socialMediaClickEvent);
