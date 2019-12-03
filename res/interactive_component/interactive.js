@@ -184,8 +184,10 @@ function populateStat() {
 }
 
 //load data from files
-d3.json("us-states.json").then(function (json) {
-    //console.log(json);
+var us_state_json = "https://raw.githubusercontent.com/mbmackenzie/edav-f19-final/master/data/interactive/us-states.json";
+
+d3.json(us_state_json).then(function (json) {
+    console.log(json);
 
     svg.select("g#map")
         .selectAll("path")
