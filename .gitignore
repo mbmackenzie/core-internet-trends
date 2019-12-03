@@ -20,3 +20,4 @@ analysis/initial/
 !analysis/initial/*.R
 !analysis/initial/*.Rmd
 !analysis/initial/intial_look_at_data
+pages/_main.Rmd
