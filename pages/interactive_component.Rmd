@@ -1,47 +1,59 @@
-# Interactive component
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Interactive Component
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(jsonlite)
 
+states <- blscrapeR::state_fips %>% 
+  transmute(state_code = state_abb,
+            state_name=state,
+            state_id = as.numeric(fips_state)) 
+
+data <- read_csv("data/tidy/core_trends.csv") %>%
+  select(year, state, contains('sm.use.')) %>%
+  set_names(gsub('sm.use.', '', names(.)))
+
+tidy <- data %>%
+  gather(app, response, -year, -state) %>%
+  filter(!is.na(response), app != 'reddit') %>%
+  group_by(year, state, app) %>%
+  summarise(percent_use = sum(response == 1) / n(), 
+            total_respondents = n()) %>%
+  ungroup() %>%
+  filter(total_respondents >= 5) %>%
+  rename(state_id = state) %>%
+  inner_join(states)
+
+json <- toJSON(tidy, dataframe = "rows")
 ```
 
+Description
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<link rel="stylesheet" href="res/interactive_component/jquery.toggleinput.css">
-<link rel="stylesheet" href="res/interactive_component/site.css">
-<link rel="stylesheet" href="res/interactive_component/social-media-logo.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+> Note: Only states with more that 5 respondents are included, others are colored grey.
 
-<div id="divSocial" style="padding: 10px; float:left; width:400px;">
-<a href="#" class="fa fa-youtube active"  media="youtube" title="Youtube"></a>
-<a href="#" class="fa fa-facebook"  media="facebook" title="Facebook"></a>
-<a href="#" class="fa fa-instagram"  media="instagram" title="Instagram"></a>
-<a href="#" class="fa fa-pinterest"  media="pintrest" title="Pintrest"></a>
-<br>
-<a href="#" class="fa fa-linkedin"  media="linkedin" title="Linkedin"></a>
-<a href="#" class="fa fa-twitter"  media="twitter" title="Twitter"></a>
-<a href="#" class="fa fa-snapchat-ghost"  media="snapchat" title="Snapchat"></a>
-<a href="#" class="fa fa-whatsapp"  media="whatsapp" title="Whatsapp"></a>
-</div>
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+htmltools::includeHTML("res/interactive_component/setup.html")
 
-<div class="has-toggle-input" style="padding: 10px; float:left;"><label class="lblyear active" year="2018">
-		2018
-	</label>
-	<label class="lblyear" year="2019">
-		2019
-	</label></div>
-	
-<div style="clear:both">
-</div>
-<div style="padding:5px;"><span style="padding-left:25px; font-size:20px;">
-		US State Choropleth for <span id="spnSocialMedia" style="font-weight:bolder;color:green">Youtube</span> users in <span id="spnYear" style="font-weight:bolder;color:green">2018</span>
-	</span>
-</div>
+options(r2d3.shadow = FALSE)
+r2d3::r2d3(json, "res/interactive_component/interactive.js", 
+           container = "div",
+           elementId = "chart", 
+           d3_version = "5",
+           viewer = "browser")
+```
 
-<div id="tooltip" class="tooltip" style="opacity:0;">
-</div>
-<!-- SVG div -->
-<div id="chart">
-</div>
+**Keyboard Controls**
+
+Press **Q** to toggle the year. To select a social media platform, press any number from **1 - 8**, these correspond to YouTube, Facebook, Instagram, Pinterest, LinkedIn, Twitter, Snapchat, and WhatsApp. 
 
 
-<script src="res/interactive_component/interactive.js" type="text/javascript"></script>
+
+
+
+
+

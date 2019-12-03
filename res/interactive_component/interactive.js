@@ -1,35 +1,45 @@
-var width = 1000,
-    height = 800;
-var margin = {
-    top: 20,
-    right: 20,
-    bottom: 20,
-    left: 20
-};
-var svg = d3.select("#chart").append("svg").attr("width", width).attr("height", height);
-svg.append("g").attr("id", "map");
+var width = 800,
+    height = 500,
+    margin = {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 40
+    },
+    innerWidth = width - margin.left - margin.right,
+    innerHeight = height - margin.top - margin.bottom;
+
+var svg = d3.select("#chart")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("g")
+    .attr("id", "map")
+    .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
 var year = "2018",
-    social_media = "youtube";
+    social_media = "youtube",
+    social_media_name = "YouTube";
 
 var projection = d3.geoAlbersUsa()
-    .translate([425, height / 3]) // translate to center of screen
-    .scale([1000]); // scale things down so see entire US
+    .translate([1.05 * (innerWidth / 2), innerHeight / 2]) // translate to center of screen
+    .scale([930]); // scale things down so see entire US
 
 var path = d3.geoPath()
     .projection(projection); // tell path generator to use albersUsa projection
 
 var map_dataset = null;
-var social_dataset = null;
+var social_dataset = data;
+var current_state = null;
 
-//var lowColor = '#f9f9f9';
-//var highColor = '#bc2a66';
 var minVal = 0;
 var maxVal = 0;
-var w = 140,
-    h = 400;
+
+var axis_off = 75,
+    grad_off = 15;
 
 var lowColor = '#fff';
-//var highColor = '#bc2a66';
 var highColorConf = {
     "youtube": "#bb0000",
     "facebook": "#3B5998",
@@ -62,24 +72,36 @@ function drawLegend() {
         .attr("stop-color", lowColor)
         .attr("stop-opacity", 1);
 
-    svg.append("rect")
-        .attr("id", "lgnd")
-        .attr("width", w - 100)
-        .attr("height", h)
-        .style("fill", "url(#gradient)")
-        .attr("transform", "translate(5,20)");
-
     var y = d3.scaleLinear()
-        .range([h - 10, 0])
-        .domain([0, 100]);
+        .range([innerHeight - axis_off, axis_off])
+        .domain([0, 1]);
 
-    var yAxis = d3.axisRight(y).ticks(10);
+    var formatPercent = d3.format(".0%");
+    var yAxis = d3.axisRight(y)
+        .ticks(10)
+        .tickFormat(formatPercent);
 
-    svg.append("g")
-        .attr("id", "grp_scale")
-        .attr("class", "y axis")
-        .attr("transform", "translate(5, 25)")
+    svg.select("#map")
+        .append("rect")
+        .attr("id", "lgnd")
+        .attr("rx", 6)
+        .attr("ry", 6)
+        .attr("width", 44)
+        .attr("height", innerHeight - (2 * axis_off) + (2 * grad_off))
+        .style("fill", "url(#gradient)")
+        .attr("transform", `translate(-4, ${axis_off - grad_off})`);
+
+    svg.select("#map")
         .call(yAxis);
+
+    svg.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 10)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style('font-size', "16px")
+        .text("Percent of Users");
 
 }
 
@@ -90,6 +112,7 @@ function updateLegend() {
     if (legend.empty() == true) {
         return;
     }
+
     legend.selectAll("stop").remove();
 
     legend.append("stop")
@@ -103,20 +126,10 @@ function updateLegend() {
         .attr("stop-opacity", 1);
 
     svg.select("rect#lgnd")
+        .transition()
+        .duration(1500)
         .style("fill", "url(#gradient)");
-
-    /*
-			var y = d3.scaleLinear()
-				.range([h, 0])
-				.domain([minVal, maxVal]);
-
-			var yAxis = d3.axisRight(y).ticks(10);
-
-			svg.select("g#grp_scale")
-				.call(yAxis);	*/
-
 }
-
 
 function populateStat() {
 
@@ -129,65 +142,74 @@ function populateStat() {
     }
 
     var div = d3.select("div#tooltip");
-    //minVal = d3.min(select_dataset.map(d=>d.user));
-    //maxVal = d3.max(select_dataset.map(d=>d.user));
     var ramp = d3.scaleLinear().domain([0, 1]).range([lowColor, highColorConf[social_media]]);
 
     svg.select("g#map")
         .selectAll("path")
+        .filter(d => d)
         .data(map_dataset, d => d.id)
         .on("mouseover", function (d) {
-            var html = "State: " + d.properties.name + "<br/>" +
-                "Social Media: " + social_media.charAt(0).toUpperCase() + social_media.slice(1) + "<br/>" +
-                "Year: " + year + "<br/>" +
-                "User: <strong>" + Number(Number(d.select_data.percent_use) * 100).toFixed(2) + "%</strong>" + "<br/>" +
-                "Total Respondents: <strong>" + d.select_data.total_respondents + "</strong>";
-            div.transition()
-                .duration(200)
-                .style("opacity", .9);
+            current_state = this;
 
-            var padX = d3.event.pageX;
-            var padY = d3.event.pageY - 30;
+            if (d.select_data) {
+                var html = "State: " + d.properties.name + "<br/>" +
+                    "Social Media: " + social_media_name + "<br/>" +
+                    "Year: " + year + "<br/>" +
+                    "User Base: <strong>" + Math.round(Number(Number(d.select_data.percent_use) * 100)) + "%</strong>" + "<br/>" +
+                    "Total Respondents: <strong>" + d.select_data.total_respondents + "</strong>";
 
-            if (d3.selectAll(".book").classed("with-summary") == true) {
-                try {
-                    var sum_div = d3.select(".book .book-summary")
-                    var pxl = parseInt(sum_div.style("width"))
-                    padX = padX - pxl;
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
 
-                } catch (error) {}
+                var padX = d3.event.pageX;
+                var padY = d3.event.pageY + 50;
+
+                if (d3.selectAll(".book").classed("with-summary") == true) {
+                    try {
+                        var sum_div = d3.select(".book .book-summary")
+                        var pxl = parseInt(sum_div.style("width"))
+                        padX = padX - pxl;
+
+                    } catch (error) {}
+                }
+
+                div.html(html)
+                    .style("left", padX + "px")
+                    .style("top", padY + "px");
             }
 
-            div.html(html)
-                .style("left", padX + "px")
-                .style("top", padY + "px");
-
         })
+
+        // div.html(html)
+        //     .style("left", d3.event.pageX + "px")
+        //     .style("top", d3.event.pageY + "px");
+
+
         .on("mouseout", function (d) {
+            current_state = null;
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
         })
-
         .transition().duration(1500)
         .style("fill", function (d) {
             //console.log(d.id);
             if (d.select_data) {
                 return ramp(d.select_data.percent_use);
             } else {
-                return ramp(0);
+                return "rgb(194, 194, 194)";
             }
-        });
+        })
 
     updateLegend();
-
 }
 
 //load data from files
 var us_state_json = "https://raw.githubusercontent.com/mbmackenzie/edav-f19-final/master/data/interactive/us-states.json";
-
+// var social_json = "https://raw.githubusercontent.com/mr3862/EDAVprojectMR/master/docs/data/state_social_media.json"
 d3.json(us_state_json).then(function (json) {
-    console.log(json);
+    //console.log(json);
 
     svg.select("g#map")
         .selectAll("path")
@@ -199,18 +221,19 @@ d3.json(us_state_json).then(function (json) {
         .style("stroke-width", "1")
         .style("fill", "#000");
 
-    d3.json("state_social_media.json").then(function (social) {
+    // d3.json(social_json).then(function (social) {
+    //         social_dataset = social.data;
+    //         map_dataset = json.features;
+    //         populateStat();
+    //         drawLegend();
+    //     })
+    //     .catch(function (err) {
+    //         console.log(err);
+    //     });
 
-            social_dataset = social.data;
-            map_dataset = json.features;
-
-            populateStat();
-            drawLegend();
-
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
+    map_dataset = json.features;
+    populateStat();
+    drawLegend();
 });
 
 
@@ -220,11 +243,11 @@ socialMediaClickEvent = function () {
     d3.select(this).classed("active", true);
 
     social_media = this.attributes.media.value;
+    social_media_name = this.attributes.title.value;
     //console.log(social_media);
-    $("#spnSocialMedia").html(this.attributes.title.value);
 
+    d3.select("#spnSocialMedia").html(this.attributes.title.value);
     populateStat();
-
     event.preventDefault();
     return false;
 }
@@ -235,9 +258,51 @@ yearClickEvent = function () {
     d3.select(this).classed("active", true);
 
     year = this.attributes.year.value;
-    $("#spnYear").html(year);
+    d3.select("#spnYear").html(year);
     populateStat();
 }
 
 d3.selectAll(".lblyear").on("click", yearClickEvent);
 d3.selectAll(".fa").on("click", socialMediaClickEvent);
+
+d3.select("body")
+    .on("keydown", function () {
+        var keyCode = d3.event.keyCode;
+        var selector;
+        switch (keyCode) {
+            case 81:
+                selector = ".lblyear:not(.active)";
+                break;
+            case 49:
+                selector = ".fa-youtube";
+                break;
+            case 50:
+                selector = ".ict.fa-facebook";
+                break;
+            case 51:
+                selector = ".fa-instagram";
+                break;
+            case 52:
+                selector = ".fa-pinterest";
+                break;
+            case 53:
+                selector = ".fa-linkedin";
+                break;
+            case 54:
+                selector = ".ict.fa-twitter";
+                break;
+            case 55:
+                selector = ".fa-snapchat-ghost";
+                break;
+            case 56:
+                selector = ".fa-whatsapp";
+                break;
+            default:
+                return;
+        }
+
+        d3.select(selector).node().click();
+        if (current_state) {
+            current_state.dispatchEvent(new Event('mouseover'));
+        }
+    });
