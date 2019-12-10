@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="res/interactive_component/jquery.toggleinput.css">
+<link rel="stylesheet" href="res/interactive_component/site.css">
+<link rel="stylesheet" href="res/interactive_component/social-media-logo.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div id="divSocial" style="padding: 10px; float:left; width:300px;">
+    <a href="#" class="fa fa-youtube active" media="youtube" title="YouTube"></a>
+    <a href="#" class="ict fa fa-facebook" media="facebook" title="Facebook"></a>
+    <a href="#" class="fa fa-instagram" media="instagram" title="Instagram"></a>
+    <a href="#" class="fa fa-pinterest" media="pintrest" title="Pintrest"></a>
+    <br>
+    <a href="#" class="fa fa-linkedin" media="linkedin" title="LinkedIn"></a>
+    <a href="#" class="ict fa fa-twitter" media="twitter" title="Twitter"></a>
+    <a href="#" class="fa fa-snapchat-ghost" media="snapchat" title="Snapchat"></a>
+    <a href="#" class="fa fa-whatsapp" media="whatsapp" title="WhatsApp"></a>
+</div>
+
+<div class="has-toggle-input" style="padding: 10px; float:left;">
+    <label class="lblyear active" year="2018">
+        2018
+    </label>
+    <label class="lblyear" year="2019">
+        2019
+    </label>
+</div>
+
+<div style="clear:both">
+</div>
+
+<div style="padding:5px;"><span style="padding-left:25px; font-size:18px;">
+        US State Choropleth for <span id="spnSocialMedia" style="font-weight:bolder;color:green">YouTube</span>
+        users in <span id="spnYear" style="font-weight:bolder;color:green">2018</span>
+    </span>
+</div>
+
+<div id="tooltip" class="tooltip" style="opacity:0;">
+</div>

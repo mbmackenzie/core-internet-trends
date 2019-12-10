@@ -1,3 +1,59 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Interactive Component
 
-Interactive Component
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(jsonlite)
+
+states <- blscrapeR::state_fips %>% 
+  transmute(state_code = state_abb,
+            state_name=state,
+            state_id = as.numeric(fips_state)) 
+
+data <- read_csv("data/tidy/core_trends.csv") %>%
+  select(year, state, contains('sm.use.')) %>%
+  set_names(gsub('sm.use.', '', names(.)))
+
+tidy <- data %>%
+  gather(app, response, -year, -state) %>%
+  filter(!is.na(response), app != 'reddit') %>%
+  group_by(year, state, app) %>%
+  summarise(percent_use = sum(response == 1) / n(), 
+            total_respondents = n()) %>%
+  ungroup() %>%
+  filter(total_respondents >= 5) %>%
+  rename(state_id = state) %>%
+  inner_join(states)
+
+json <- toJSON(tidy, dataframe = "rows")
+```
+
+Description
+
+> Note: Only states with more that 5 respondents are included, others are colored grey.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+htmltools::includeHTML("res/interactive_component/setup.html")
+
+options(r2d3.shadow = FALSE)
+r2d3::r2d3(json, "res/interactive_component/interactive.js", 
+           container = "div",
+           elementId = "chart", 
+           d3_version = "5",
+           viewer = "browser")
+```
+
+**Keyboard Controls**
+
+Press **Q** to toggle the year. To select a social media platform, press any number from **1 - 8**, these correspond to YouTube, Facebook, Instagram, Pinterest, LinkedIn, Twitter, Snapchat, and WhatsApp. 
+
+
+
+
+
+
+

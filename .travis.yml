@@ -2,6 +2,14 @@ language: r
 cache: packages
 pandoc_version: 1.19.2.1
 
+repos:
+  cran: http://cran.rstudio.com
+  rforge: http://R-Forge.R-project.org
+
+r_github_packages:
+ - rstudio/bookdown
+ - rstudio/r2d3
+
 before_script:
   - chmod +x ./_build.sh
   - chmod +x ./_deploy.sh
