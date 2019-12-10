@@ -11,5 +11,6 @@ rmd_files: [
  "pages/results.Rmd",
  "pages/interactive_component.Rmd",
  "pages/conclusion.Rmd",
+ "pages/appx_data_dictionary.Rmd",
  "references.Rmd"
 ]
