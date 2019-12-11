@@ -21,3 +21,7 @@ analysis/initial/
 !analysis/initial/*.Rmd
 !analysis/initial/intial_look_at_data
 pages/_main.Rmd
+analysis/scratch/*
+!analysis/scratch/*.R
+!analysis/scratch/*.Rmd
+
