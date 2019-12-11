@@ -1,0 +1,251 @@
+---
+title: "Scratch Work"
+author: "Matt Mackenzie - mbm2228"
+date: "12/7/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+
+```{r}
+setwd("/Users/mmackenzie/Documents/Github/edav-f19-final")
+source('analysis/R/replace_levels.R')
+library(tidyverse)
+
+theme_set(theme_light())
+
+core_trends <- read_csv('data/tidy/core_trends.csv') %>%
+  filter(year == 2018)
+
+econ_data <- read_csv('data/tidy/econ_data.csv') %>%
+  filter(year == 2018)
+```
+
+Age dist
+```{r}
+core_trends %>%
+  filter(age <= 97) %>%
+  ggplot(aes(age)) + 
+  geom_histogram(binwidth = 3)
+```
+
+
+```{r}
+internet_frequency <- core_trends %>%
+  mutate(internet.freq = replace_levels(internet.freq, na_explicit = TRUE)) 
+
+internet_frequency %>%
+  group_by(internet.freq) %>% 
+  tally() %>%
+  mutate(percent = n / sum(n)) %>%
+  filter(grepl("day|constant", internet.freq)) %>%
+  pull(percent) %>%
+  sum() * 100
+```
+
+## 77.3% of people use the internet everyday. 
+
+```{r}
+
+  
+```
+
+## INTERNET SENTIMENT
+```{r}
+library(broom)
+library(Matrix)
+library(glmnet)
+library(tidytext)
+
+demographics <- core_trends %>%
+  select(respid, age_bin, density, education, employment, hispanic, house.income, sex, race, internet.freq) %>%
+  filter(internet.freq <= 5, !is.na(internet.freq)) %>%
+  mutate(education = replace_levels(education), 
+         employment = replace_levels(employment), 
+         hispanic = replace_levels(hispanic), 
+         house.income = replace_levels(house.income),
+         sex = replace_levels(sex), 
+         race = replace_levels(race), 
+         internet_frequency = replace_levels(internet.freq))
+
+politics <- core_trends %>%
+  select(respid, pol.party, pol.lean) %>%
+  rename(pol.lean_original = pol.lean) %>%
+  mutate(pol.lean = ifelse(pol.party > 2, pol.lean_original, pol.party)) %>%
+  mutate(political_opinion = replace_levels(pol.lean)) %>%
+  select(respid, political_opinion) 
+
+features <- demographics %>%
+  select(-internet_frequency, -internet.freq) %>%
+  inner_join(politics, by = "respid") %>%
+  gather(feature, value, -respid) %>%
+  unite(feature, feature, value, sep = ": ") %>%
+  add_count(feature) %>%
+  filter(n >= 50)
+ 
+feature_matrix <- features %>%
+  cast_sparse(respid, feature)
+
+dim(feature_matrix)
+
+int_freq <- demographics$internet.freq[match(rownames(feature_matrix), demographics$respid)]
+
+cv_lasso <- cv.glmnet(feature_matrix, int_freq)
+plot(cv_lasso)
+
+lasso_fit <- glmnet(feature_matrix, int_freq)
+lasso_fit %>%
+  tidy() %>%
+  filter(term != "(Intercept)", 
+         lambda == cv_lasso$lambda.1se) %>%
+  arrange(desc(estimate)) %>%
+  mutate(term = fct_reorder(term, -estimate)) %>%
+  ggplot(aes(term, -estimate)) +
+  geom_col() + 
+  coord_flip() + 
+  labs(x = "", 
+       y = "Effect", 
+       title = "How do demographics influence internet usage?") + 
+  theme(axis.ticks.x = element_blank(), 
+        axis.text.x = element_blank())
+
+library(GGally)
+library(gridExtra)
+
+demographics %>%
+  select(age_bin, education, employment, house.income, internet_frequency) %>%
+  sample_n(100) %>%
+  ggparcoord(groupColumn = 5,
+             scale = "globalminmax", 
+             splineFactor = 10, 
+             alphaLines = 0.8)
+
+df <- core_trends %>%
+  select(age, house.income, internet.freq) %>%
+  filter(internet.freq <= 5, 
+         !is.na(internet.freq), 
+         age <= 97, 
+         house.income <= 9) %>%
+  mutate(age = ifelse(age > 50, "Over 50", "50 or Younger"), 
+         house_income = ifelse(house.income >= 8, "Over $100,000", 
+                               ifelse(house.income >= 5, "$40,000 to $100,000", 
+                                      "Under $40,000")), 
+         internet_frequency = internet.freq) %>%
+  count(age, house_income, internet_frequency) %>%
+  rename(Freq = n) %>% 
+  mutate(house_income = factor(house_income, 
+                levels = c("Under $40,000", "$40,000 to $100,000", "Over $100,000")), 
+         age = age, 
+         internet_frequency = fct_drop(as.factor(internet_frequency)))
+
+vcd::mosaic(internet_frequency ~ age + house_income, df, 
+            direction = c('v', 'v', 'h'))
+```
+
+## SOCIETY ANALYSIS
+
+```{r}
+library(wordcloud)
+library(Gmisc)
+
+society_trends <- core_trends %>%
+  select(respid, contains('society.')) %>%
+  mutate(society_overall = replace_levels(society.overall), 
+         society_personal = replace_levels(society.personal))
+
+transition_mtrx <- society_trends %>%
+  filter(!is.na(society.personal),
+         society.overall <= 3, 
+         society.personal <= 3) %>%
+  count(society_overall, society_personal) %>%
+  spread(society_personal, n) %>%
+  rename(rowname = society_overall) %>%
+  column_to_rownames() %>%
+  replace(is.na(.), 0)
+
+transitionPlot(transition_mtrx, 
+               overlap_add_width = 3, 
+               type_of_arrow = "gradient", 
+               min_lwd = unit(0, "mm"),
+               main = "Internet Sentiment", 
+               box_label = c("Society", "Personal"))
+
+society_words <- society_trends %>%
+  filter(society.text.exists == 1) %>%
+  unnest_tokens(word, society.text) %>%
+  anti_join(get_stopwords()) 
+
+society_words %>%
+  count(word) %>%
+  filter(n > 1) %>%
+  with(wordcloud(word, n, random.order = FALSE, max.words = 75, rot.per = 0))
+```
+
+```{r}
+society_words %>%
+  count(society_overall, word, sort = TRUE) %>%
+  bind_tf_idf(word, society_overall, n) %>%
+  group_by(society_overall) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  mutate(word = fct_reorder(word, tf_idf)) %>%
+  ggplot(aes(word, tf_idf)) + 
+  geom_col() + 
+  facet_wrap(~ society_overall, scales = 'free_y') + 
+  coord_flip()
+```
+
+# Likert stuff
+
+```{r}
+library(HH)
+
+core_trends %>%
+  filter(age <= 97, internet.freq <= 5) %>%
+  transmute(internet_frequency = fct_rev(replace_levels(internet.freq)), 
+            age_bin) %>%
+  group_by(internet_frequency, age_bin) %>%
+  tally() %>%
+  spread(internet_frequency, n) %>%
+  likert(age_bin ~ ., ., 
+         as.percent = "noRightAxis", 
+         main = "Internet Usage by Age")
+```
+
+```{r}
+core_trends %>%
+  filter(pol.party <= 3, internet.freq <= 5) %>%
+  transmute(internet_frequency = fct_rev(replace_levels(internet.freq)), 
+            political_party =  fct_relevel(replace_levels(pol.party), 
+                                           "Republican", "Independent")) %>%
+  group_by(internet_frequency, political_party) %>%
+  tally() %>%
+  spread(internet_frequency, n) %>%
+  likert(political_party ~ ., ., as.percent = 'noRightAxis')
+```
+
+```{r}
+core_trends %>%
+  filter(sex <= 2, internet.freq <= 5) %>%
+  transmute(internet_frequency = fct_rev(replace_levels(internet.freq)), 
+            sex = replace_levels(sex)) %>%
+  group_by(internet_frequency, sex) %>%
+  tally() %>%
+  spread(internet_frequency, n) %>%
+  likert(sex ~ ., ., as.percent = 'noRightAxis')
+```
+
+# Econ Data
+
+# ```{r}
+# core_trends %>%
+#   filter(!is.na(internet.freq)) %>%
+#   select(state, internet.freq, society.overall, society.personal) %>%
+#   mutate(state_code = sprintf("%02d", state)) %>%
+#   left_join(econ_data, by = "state_code")
+```

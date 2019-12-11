@@ -6,4 +6,5 @@ Imports:
   tidyverse,
   jsonlite,
   blscrapeR,
-  htmltools
+  htmltools,
+  tidytext

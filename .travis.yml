@@ -9,6 +9,7 @@ repos:
 r_github_packages:
  - rstudio/bookdown
  - rstudio/r2d3
+ - gforge/Gmisc
 
 before_script:
   - chmod +x ./_build.sh

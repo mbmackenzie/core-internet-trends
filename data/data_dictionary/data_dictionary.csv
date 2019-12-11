@@ -222,9 +222,12 @@
 2018,racecmb,race,Which of the following describes your race? ,Demographic,1,White
 2018,racecmb,race,Which of the following describes your race? ,Demographic,2,Black or African-American
 2018,racecmb,race,Which of the following describes your race? ,Demographic,3,Asian or Asian-American
-2018,racecmb,race,Which of the following describes your race? ,Demographic,4,Mixed race
-2018,racecmb,race,Which of the following describes your race? ,Demographic,5,Some other race
-2018,racecmb,race,Which of the following describes your race? ,Demographic,9,Don't know/Refused
+2018,racecmb,race,Which of the following describes your race? ,Demographic,4,Some other race
+2018,racecmb,race,Which of the following describes your race? ,Demographic,5,Native American/American Indian/Alaska Native
+2018,racecmb,race,Which of the following describes your race? ,Demographic,6,Pacific Islander/Native Hawaiian
+2018,racecmb,race,Which of the following describes your race? ,Demographic,7,Hispanic/Latino
+2018,racecmb,race,Which of the following describes your race? ,Demographic,8,Don't know
+2018,racecmb,race,Which of the following describes your race? ,Demographic,9,Refused
 2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,1,U.S.
 2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,2,Puerto Rico
 2018,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,3,Another county
@@ -533,9 +536,12 @@
 2019,racecmb,race,Which of the following describes your race? ,Demographic,1,White
 2019,racecmb,race,Which of the following describes your race? ,Demographic,2,Black or African-American
 2019,racecmb,race,Which of the following describes your race? ,Demographic,3,Asian or Asian-American
-2019,racecmb,race,Which of the following describes your race? ,Demographic,4,Mixed race
-2019,racecmb,race,Which of the following describes your race? ,Demographic,5,Some other race
-2019,racecmb,race,Which of the following describes your race? ,Demographic,9,Don't know/Refused
+2019,racecmb,race,Which of the following describes your race? ,Demographic,4,Some other race
+2019,racecmb,race,Which of the following describes your race? ,Demographic,5,Native American/American Indian/Alaska Native
+2019,racecmb,race,Which of the following describes your race? ,Demographic,6,Pacific Islander/Native Hawaiian
+2019,racecmb,race,Which of the following describes your race? ,Demographic,7,Hispanic/Latino
+2019,racecmb,race,Which of the following describes your race? ,Demographic,8,Don't know
+2019,racecmb,race,Which of the following describes your race? ,Demographic,9,Refused
 2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,1,U.S.
 2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,2,Puerto Rico
 2019,birth_hisp,birth_place,"Were you born in the United States, on the island of Puerto Rico, or in another country?",Demographic,3,Another county
