@@ -1,3 +1,47 @@
 # Missing Values
 
 Missing Values
+
+```{r}
+library(ggplot2) 
+library(dplyr)
+library(tidyverse)
+library(mi) 
+#devtools::install_github('https://github.com/cran/extracat') 
+#devtools::install_github("CRAN/extracat")
+library(extracat)
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+core_trends_raw = readr::read_csv("../data/tidy/core_trends.csv")
+```
+
+
+```{r}
+core_trends= core_trends_raw %>%
+  select(year,respid,cregion,state,age,education,employment,house.income,pol.party,sex,race,internet.freq,contains('sm.use'),contains('society'),contains('depend')) %>%
+   select(-sm.use.reddit)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+ct_mi <- mi::missing_data.frame(as.data.frame(core_trends))
+```
+
+```{r}
+image(ct_mi)
+```
+```{r}
+pattarn = ct_mi@patterns  
+levels(pattarn)
+```
+
+
+ `
+
+```{r fig.height=10}
+extracat::visna(core_trends, sort="b") + theme_gray(16)
+```
+
