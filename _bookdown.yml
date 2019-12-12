@@ -3,14 +3,17 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
-rmd_files: [
- "index.Rmd",
- "pages/data_sources.Rmd",
- "pages/data_transformation.Rmd",
- "pages/missing_values.Rmd",
- "pages/results.Rmd",
- "pages/interactive_component.Rmd",
- "pages/conclusion.Rmd",
- "pages/appx_data_dictionary.Rmd",
- "references.Rmd"
-]
+new_session: yes
+rmd_files:
+  [
+    "index.Rmd",
+    "data_sources.Rmd",
+    "data_transformation.Rmd",
+    "missing_values.Rmd",
+    "results.Rmd",
+    "interactive_component.Rmd",
+    "conclusion.Rmd",
+    "appx_data_dictionary.Rmd",
+    "appx_interesting_plots.Rmd",
+    "references.Rmd",
+  ]

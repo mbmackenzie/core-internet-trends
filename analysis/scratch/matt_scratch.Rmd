@@ -13,15 +13,13 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 
 ```{r}
-setwd("/Users/mmackenzie/Documents/Github/edav-f19-final")
+# setwd("/Users/mmackenzie/Documents/Github/edav-f19-final")
 source('analysis/R/replace_levels.R')
 library(tidyverse)
 
 theme_set(theme_light())
 
-core_trends <- read_csv('data/tidy/core_trends.csv') %>%
-  filter(year == 2018)
-
+core_trends <- read_csv('data/tidy/core_trends.csv')
 econ_data <- read_csv('data/tidy/econ_data.csv') %>%
   filter(year == 2018)
 ```
@@ -40,12 +38,11 @@ internet_frequency <- core_trends %>%
   mutate(internet.freq = replace_levels(internet.freq, na_explicit = TRUE)) 
 
 internet_frequency %>%
-  group_by(internet.freq) %>% 
+  group_by(year, internet.freq) %>% 
   tally() %>%
   mutate(percent = n / sum(n)) %>%
   filter(grepl("day|constant", internet.freq)) %>%
-  pull(percent) %>%
-  sum() * 100
+  summarise(tot_percent = sum(percent))
 ```
 
 ## 77.3% of people use the internet everyday. 
@@ -118,9 +115,9 @@ library(GGally)
 library(gridExtra)
 
 demographics %>%
-  select(age_bin, education, employment, house.income, internet_frequency) %>%
+  select(cregion, age_bin, house.income, internet_frequency) %>%
   sample_n(100) %>%
-  ggparcoord(groupColumn = 5,
+  ggparcoord(groupColumn = 4,
              scale = "globalminmax", 
              splineFactor = 10, 
              alphaLines = 0.8)
@@ -205,14 +202,17 @@ society_words %>%
 ```{r}
 library(HH)
 
+core_trends <- read_csv('data/tidy/core_trends.csv')
 core_trends %>%
   filter(age <= 97, internet.freq <= 5) %>%
-  transmute(internet_frequency = fct_rev(replace_levels(internet.freq)), 
+  transmute(year, 
+            internet_frequency = fct_rev(replace_levels(internet.freq)), 
             age_bin) %>%
-  group_by(internet_frequency, age_bin) %>%
+  group_by(year, internet_frequency, age_bin) %>%
   tally() %>%
   spread(internet_frequency, n) %>%
-  likert(age_bin ~ ., ., 
+  replace(is.na(.), 0) %>%
+  likert(age_bin ~ .|year, ., 
          as.percent = "noRightAxis", 
          main = "Internet Usage by Age")
 ```
@@ -248,4 +248,11 @@ core_trends %>%
 #   select(state, internet.freq, society.overall, society.personal) %>%
 #   mutate(state_code = sprintf("%02d", state)) %>%
 #   left_join(econ_data, by = "state_code")
+
+
+```{r}
+core_trends %>%
+  filter(age <= 97) %>%
+  select(age_bin, contains("society"), contains("depend"))
 ```
+

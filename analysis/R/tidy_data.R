@@ -156,11 +156,15 @@ df2019_renamed <- df2019 %>%
 combined_data <- rbind.fill(df2018_renamed, df2019_renamed)
 
 # bin ages
-age_breaks <- c(18, 25, 35, 45, 55, 65, 75, 98)
+age_breaks <- c(18, 35, 65, 98)
 combined_data$age_bin = cut(combined_data$age, breaks = age_breaks, right = FALSE)
 levels(combined_data$age_bin) <- c(levels(combined_data$age_bin), c('Don\'t Know', 'Refused'))
 combined_data$age_bin[combined_data$age == 98] = 'Don\'t Know'
 combined_data$age_bin[combined_data$age == 99] = 'Refused'
-combined_data$age_bin = fct_recode(combined_data$age_bin, "75+" = "[75,98)")
+combined_data$age_bin = fct_recode(combined_data$age_bin, 
+                                   "Under 35" = "[18,35)",
+                                   "35 to under 65" = "[35,65)",
+                                   "Over 65" = "[65,98)")
+
 
 write_csv(combined_data, "data/tidy/core_trends.csv")

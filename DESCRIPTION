@@ -7,4 +7,12 @@ Imports:
   jsonlite,
   blscrapeR,
   htmltools,
-  tidytext
+  tidytext,
+  DataExplorer,
+  HH, 
+  ggthemes, 
+  cowplot,
+  wordcloud,
+  Gmisc,
+  vcd,
+  parcoords

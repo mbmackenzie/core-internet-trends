@@ -24,4 +24,7 @@ pages/_main.Rmd
 analysis/scratch/*
 !analysis/scratch/*.R
 !analysis/scratch/*.Rmd
+Analysis of Internet Core Trends.*
+report.html
+_bookdown_files/
 
