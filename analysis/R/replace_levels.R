@@ -1,7 +1,8 @@
 library(tidyverse)
+dd <- read_csv('data/data_dictionary/data_dictionary.csv')
 
 get_levels <- function(name) {
-  df <- read_csv('../../data/data_dictionary/data_dictionary.csv') %>%
+  df <- dd %>%
     distinct(new_name, category, value, meaning) %>%
     group_by(category, new_name) %>%
     summarize(levels = list(meaning)) %>%
@@ -30,8 +31,12 @@ change_levels <- function(x, levels, na_explicit = FALSE, na_level = NA) {
   return(x)
 }
 
-replace_levels <- function(x, na_explicit = FALSE, na_level = NA) {
-  name <- deparse(substitute(x))
+replace_levels <- function(x, use_col = NA, na_explicit = FALSE, na_level = NA) {
+  if (is.na(use_col)) {
+    name <- deparse(substitute(x))
+  } else {
+    name <- use_col
+  }
   levels <- get_levels(name)
   change_levels(x, levels, na_explicit, na_level)
 }

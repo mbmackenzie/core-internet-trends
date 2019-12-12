@@ -1,0 +1,328 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Results
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = 'center'
+)
+```
+
+```{r load_data}
+library(HH)
+library(tidyverse)
+library(ggthemes)
+library(cowplot)
+library(tidytext)
+library(wordcloud)
+library(Gmisc)
+
+source('analysis/R/replace_levels.R')
+
+theme_set(theme_economist_white())
+core_trends <- read_csv("data/tidy/core_trends.csv")
+
+no_response_cols <- c("Refused", "(Missing)", "Don\'t know")
+```
+
+## Internet Usage
+
+> "The U.S. has 4% of the world's population, 10% of its Internet users and 25% of its broadband investment."
+>
+> `r tufte::quote_footer('--- NCTA')`
+
+The internet is a vital aspect of modern society, and it's existence has affected every area of human life. Americans reap the benefits of impressive internet speeds and and consistent coverage that enables them to utilize the internet in many facets. In 2019, 81% of Americans subscribed to home internet services and of those, 92% of had access to high speed internet.
+
+```{r, fig.height=4, fig.width=8, fig.cap="On the left: the break down of internet speeds in the entire United States. This percentage is out of only people who answered they subscribed to internet services at home. On the right: the percentage of adults in the US that subscribe to internet services at home."}
+other <- c("Access internet only using cell phone or tablet", "Both", "Dial-up", "No home internet access")
+
+subscribe_to_service_plot <- core_trends %>%
+  filter(year == 2019, service.subscribe <= 2) %>%
+  mutate(service.subscribe = replace_levels(service.subscribe)) %>%
+  count(service.subscribe) %>%
+  mutate(percent = n / sum(n)) %>%
+  ggplot(aes(service.subscribe, percent)) + 
+  geom_col() +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) + 
+  labs(caption = "Internet speed question only asked in 2019 \n'No response' lumps together people who don't know, refused, or otherwise had no response", 
+       x = "", 
+       y = "")
+
+service_speed_plot <- core_trends %>%
+  filter(year == 2019, service.subscribe == 1) %>%
+  select(respid, service.speed) %>%
+  mutate(service.speed = fct_collapse(replace_levels(service.speed, na_explicit = TRUE), 
+                                      `No response` = no_response_cols, 
+                                      `Other` = other)) %>%
+  mutate(service.speed = fct_recode(service.speed, "High Speed" = "Higher-speed")) %>%
+  group_by(service.speed) %>%
+  tally() %>%
+  mutate(percent = n / sum(n)) %>%
+  mutate(service.speed = fct_reorder(service.speed, percent)) %>%
+  ggplot(aes(service.speed, percent)) + 
+  geom_col() +
+  coord_flip() + 
+  expand_limits(y = 1) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) + 
+  labs(title = "AMERICANS SUBSCRIBE TO HIGH SPEED INTERNET", 
+       x = "", 
+       y = "") + 
+  theme(axis.text.y = element_text(angle = 90, hjust = 0.5), 
+        title = element_text(size = 8))
+
+plot_grid(service_speed_plot, subscribe_to_service_plot, nrow = 1, align="h", rel_widths = c(2, 1))
+```
+
+
+
+
+```{r fig.width=8, fig.height=6, fig.cap="The breakdown of internet usage, faceted by year, for all adults in the US."}
+core_trends %>%
+  select(year, internet.freq) %>%
+  mutate(internet.freq = replace_levels(internet.freq, na_explicit = TRUE)) %>%
+  mutate(internet.freq = fct_collapse(
+    internet.freq, `No response` = no_response_cols)) %>%
+  mutate(internet.freq = fct_rev(internet.freq)) %>%
+  group_by(year, internet.freq) %>%
+  tally() %>%
+  mutate(percent = n / sum(n)) %>%
+  ggplot(aes(internet.freq, percent)) +
+  geom_col() + 
+  facet_wrap(~ year, ncol = 1) + 
+  coord_flip() + 
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) + 
+  labs(title = "MOST AMERICANS USE THE INTERNET EVERYDAY", 
+       caption = "'No response' lumps together people who don't know, refused, or otherwise had no response.", 
+       x = "", 
+       y = "Percent of Responses") 
+```
+
+### Social Media Usage
+
+```{r fig.width=10, fig.height=8, fig.cap="The breakdown of how adults in the US use social media by how much they use the internet. The percentages are taken within each internet usage group, across both 2018 and 2019."}
+core_trends %>%
+  select(year, internet.freq, contains("sm.freq")) %>%
+  gather(social_media, freq, -internet.freq, -year) %>%
+  filter(freq <= 5, internet.freq <= 5) %>%
+  mutate(internet.freq = replace_levels(internet.freq, na_explicit = TRUE),
+         freq = replace_levels(freq, use_col = "internet.freq")) %>%
+  mutate(internet.freq = fct_collapse(internet.freq, 
+                                      `Less often` = c("About once a day", "Several times a week", "Less often"))) %>%
+  count(internet.freq, social_media, freq) %>%
+  group_by(internet.freq) %>%
+  mutate(percent = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(internet.freq = glue::glue("Uses internet { tolower(internet.freq) }"),
+         social_media = str_to_title(gsub("sm.freq.", "", social_media))) %>%
+  mutate(internet.freq = fct_relevel(internet.freq, 'Uses internet less often', after = 2), 
+         social_media = fct_reorder(social_media, percent)) %>%
+  ggplot(aes(social_media, percent, fill = fct_rev(freq))) + 
+  geom_col() + 
+  facet_wrap(~ internet.freq, ncol = 1) + 
+  coord_flip() + 
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(title = "How do internet users spend their time?",
+       subtitle = "With respect to how often they use the internet",
+       caption = "NA values and Don't Know/Refused responses were ommited from this graph \nLess often reponses lumps together all other responses from the other 2 included.", 
+       x = "", 
+       y = "Percent of Responses", 
+       fill = "Social Media Usage") + 
+  theme(legend.position="top", 
+        legend.text = element_text(size=10)) + 
+  scale_fill_brewer(palette = "Set2", guide = guide_legend(reverse=TRUE))
+```
+
+```{r fig.width=10, fig.height=10, fig.cap="Breakdown of multiple social media usages, across both 2018 and 2019 by age. This graph was generated with the HH package."}
+core_trends %>%
+  filter(age <= 97) %>%
+  select(age, age_bin, contains("sm.freq")) %>%
+  mutate(age_bin = fct_relevel(as_factor(age_bin), "Over 65", after = 2)) %>%
+  gather(social_media, freq, -age_bin, -age) %>%
+  filter(freq <= 5) %>%
+  mutate(freq = fct_rev(replace_levels(freq, use_col = "internet.freq")), 
+         social_media = paste("Uses", str_to_title(gsub("sm.freq.", "", social_media)))) %>%
+  group_by(social_media, age_bin, freq) %>%
+  tally() %>%
+  spread(freq, n) %>%
+  replace(is.na(.),0) %>%
+  likert(age_bin ~ .|social_media, ., 
+         layout=c(1,5),
+         as.percent = "noRightAxis",
+         main = "Social Media Usage by Age", 
+         ylab="")
+```
+
+```{r}
+core_trends %>%
+  filter(age <= 97, depend.internet <= 5, depend.sm <= 5) %>%
+  transmute(age_bin, 
+            depend.internet = replace_levels(depend.internet), 
+            depend.sm = replace_levels(depend.sm)) %>%
+  gather(item, dependency, -age_bin) %>%
+  group_by(age_bin, item, dependency) %>%
+  tally() %>%
+  ungroup() %>%
+  mutate(dependency = fct_rev(fct_relevel(dependency, "Impossible", after = 4)),
+         age_bin = fct_relevel(age_bin, "Under 35"),
+         item = paste("Giving up", str_to_title(ifelse(gsub("depend.", "", item) == "sm", "Social Media", "the Internet")))) %>%
+  spread(dependency, n) %>%
+  replace(is.na(.),0) %>%
+  likert(age_bin ~ .|item, ., 
+         layout=c(1,2),
+         as.percent = "noRightAxis",
+         main = "Dependency on the Internet and Social Media", 
+         ylab="")
+```
+
+## Demographics: Age, Income, and the Internet
+
+```{r, fig.width=12, fig.height=8, fig.cap="AC: Almost constantly; SD: Several times a day; LO: Less often. This graph was generated by the vcd pacakge, and uses data from both 2018 and 2019."}
+library(vcd)
+
+core_trends %>%
+  filter(internet.freq <= 5, 
+         !is.na(internet.freq), 
+         age <= 97, 
+         house.income <= 9) %>%
+  transmute(house_income = ifelse(house.income >= 8, "Over $100,000", 
+                               ifelse(house.income >= 5, "$40,000 to $100,000", 
+                                      "Under $40,000")), 
+            internet_frequency = replace_levels(internet.freq, na_explicit = TRUE), 
+            age_bin) %>%
+  count(age_bin, house_income, internet_frequency) %>%
+  rename(Freq = n) %>% 
+  mutate(internet_frequency = fct_collapse(internet_frequency,
+                                           `Less often` = c("About once a day", 
+                                                            "Several times a week", 
+                                                            "Less often")), 
+         age_bin = fct_relevel(age_bin, "Under 35"), 
+         house_income = fct_relevel(house_income, "$40,000 to $100,000", after = 1), 
+         internet_frequency = fct_drop(as.factor(internet_frequency)),
+         internet_frequency = fct_recode(internet_frequency, 
+                                         "AC" = "Almost constantly", 
+                                         "SD" = "Several times a day", 
+                                         "LO" = "Less often")) %>%
+  mosaic(internet_frequency ~ age_bin + house_income, ., pop = TRUE,
+         direction = c('v', 'h', 'v'),
+         rot_labels = c(0, 0, 12, 90),
+         labeling_args = list(set_varnames = c(internet_frequency="", age_bin="", house_income="")), main = "Age, Income, and Internet Usage")
+```
+
+
+```{r fig.width=12, fig.height=12, fig.cap="Using multiple categorical values, the distribution of internet frequency responses were caluclated for each feature:value pair."}
+core_trends %>%
+  filter(internet.freq <= 5, house.num_people <= 8, education <= 8, marital <= 7) %>%
+  transmute(respid, 
+            density = glue::glue("{ density } quintile"),
+            employment = replace_levels(employment), 
+            employment = fct_recode(employment, "Self employed" = "Have own business/self-employed"),
+            education = replace_levels(education),
+            education = fct_collapse(education, "No college degree" = c("Less than high school", "High school incomplete", "High school graduate", "Some college, no degree"), "Post graduate work" = c("Some postgraduate or professional schooling", "Postgraduate or professional degree")), 
+            house.num_people = ifelse(house.num_people > 5, "More than 5", 
+                                      ifelse(house.num_people > 2, "3 to 5", "2 or Less")),
+            marital = replace_levels(marital),
+            cregion = replace_levels(cregion), 
+            hispanic = replace_levels(hispanic), 
+            house.income = ifelse(house.income >= 8, 
+                               "Over $100,000", 
+                               ifelse(house.income >= 5, 
+                                      "$40,000 to $100,000", 
+                                      "Under $40,000")), 
+            sex = replace_levels(sex), 
+            race = replace_levels(race),
+            race = fct_collapse(race, "Some other race" = c("Pacific Islander/Native Hawaiian", "Native American/American Indian/Alaska Native", "Some other race")),
+            pol.party = replace_levels(pol.party),
+            internet_frequency = replace_levels(internet.freq)) %>%
+  janitor::clean_names() %>%
+  gather(feature, value, -respid, -internet_frequency) %>%
+  filter(value != "Don't know", value != "Refused") %>%
+  unite(feature, feature, value, sep = ": ") %>%
+  group_by(internet_frequency, feature) %>%
+  tally() %>%
+  ungroup() %>%
+  group_by(feature) %>%
+  mutate(percent = n / sum(n)) %>%
+  select(-n) %>%
+  replace(is.na(.), 0) %>%
+  ggplot(aes(feature, internet_frequency, fill = percent)) +
+  geom_tile() + 
+  coord_flip() + 
+  scale_fill_continuous(labels = scales::percent_format(accuracy = 1)) + 
+  labs(title = "MOST AMERICANS USE THE INTERNET THE SAME AMOUNT", 
+       fill = "Percent of Responses", 
+       x = "", 
+       y = "") + 
+  theme(legend.position = "bottom", 
+        legend.key.width = unit(3, "cm"), 
+        legend.text.align = 0)
+```
+
+## Sociey's Opinion: Internet Impact on Society
+
+```{r}
+society_trends <- core_trends %>%
+  filter(year == 2018) %>%
+  select(respid, contains('society.')) %>%
+  mutate(society.overall = replace_levels(society.overall, na_explicit = TRUE), 
+         society.personal = replace_levels(society.personal, na_explicit = TRUE))
+  
+society_words <- society_trends %>%
+  filter(society.text.exists == 1) %>%
+  unnest_tokens(word, society.text) %>%
+  anti_join(get_stopwords()) 
+
+society_words %>%
+  count(word) %>%
+  filter(n > 1) %>%
+  with(wordcloud(word, n, random.order = FALSE, max.words = 75, rot.per = 0, scale = c(5, 1)))
+```
+
+So far, it seems that regardless of a person's age, financial status, houshold, political nature, really background characteristics, Americans, for the most part, use the internet the same amount. So, since it is established that the internet is popular, why is this so? One of the most interesting series of questions asked by the Core Trends survey is about the societal impact of the internt: has the internet been a bad or good thing for both society and why? Unfortunately, this question series was only asked in 2018, but the single year offers some interesting insights into American's opinions of the internet.
+
+```{r fig.height=6, fig.width=8, fig.cap=""}
+society_trends %>%
+  transmute(respid, 
+            society.overall = fct_collapse(society.overall, "No response" = no_response_cols), 
+            society.personal = fct_collapse(society.personal, "No response" = no_response_cols)) %>%
+  gather(group, response, -respid) %>%
+  group_by(group, response) %>%
+  summarize(n = n()) %>%
+  mutate(percent = n / sum(n), 
+         response = fct_reorder(response, percent)) %>%
+  ungroup() %>%
+  mutate(group = fct_recode(group, "Overall" = "society.overall", "Personally" = "society.personal")) %>%
+  ggplot(aes(response, percent)) + 
+  geom_col() + 
+  facet_wrap(~ group, ncol = 1) + 
+  coord_flip() +   
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) + 
+  labs(title = "AMERICANS PERCEIVE THE INTERNET AS A GOOD THING", 
+       subtitle = "Question: Woulxd you say the internet has mostly been a good or bad thing for society?",
+       y = "Percent of Responses", 
+       x = "")
+```
+
+```{r fig.width=15, fig.height=8}
+strong_words <- society_words %>%
+  count(society.overall, word, sort = TRUE) %>%
+  filter(society.overall %in% c("Good thing", "Bad thing")) %>%
+  bind_tf_idf(word, society.overall, n) %>%
+  group_by(society.overall) %>%
+  top_n(20, tf_idf)
+
+par(mfrow=c(1,2))
+strong_words %>%
+  filter(society.overall == "Good thing") %>%
+  with(wordcloud(word, tf_idf, random.order = FALSE, max.words = 25, rot.per = 0, scale = c(6, 2)))
+strong_words %>%
+  filter(society.overall == "Bad thing") %>%
+  with(wordcloud(word, tf_idf, random.order = FALSE, max.words = 25, rot.per = 0, scale = c(4.5, 2)))
+```
+

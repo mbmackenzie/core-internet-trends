@@ -1,0 +1,71 @@
+# Interesting Plots
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = 'center'
+)
+```
+
+```{r}
+library(HH)
+library(tidyverse)
+library(ggthemes)
+library(cowplot)
+
+source('analysis/R/replace_levels.R')
+
+theme_set(theme_economist_white())
+core_trends <- read_csv("data/tidy/core_trends.csv")
+
+no_response_cols <- c("Don't know", "Refused", "(Missing)")
+```
+
+Some plots did not make the cut to be included in the main analysis, however we felt that they were interesting enough to present none the less. 
+
+```{r fig.width=10, fig.height=6, fig.cap="Breakdown of Twitter usage by political party, faceted by year. This graph was generated with the HH package."}
+core_trends %>%
+  filter(pol.party <= 3, sm.freq.twitter <= 5) %>%
+  transmute(smtw_frequency = fct_rev(replace_levels(sm.freq.twitter)), 
+            political_party =  fct_relevel(replace_levels(pol.party), 
+                                           "Republican", "Independent"), year) %>%
+  group_by(smtw_frequency, political_party, year) %>%
+  tally() %>%
+  spread(smtw_frequency, n) %>%
+  replace(is.na(.),0) %>%
+  likert(political_party ~ .|year, .,
+         layout=c(1,2), 
+         as.percent = 'noRightAxis', 
+         main = "Twitter Usage by Political Party", 
+         ylab="")
+```
+
+
+```{r}
+library(parcoords)
+
+core_trends %>%
+  filter(internet.freq <= 5, cregion <= 4, age <= 97, sex <= 2, pol.party <= 3) %>%
+  transmute(cregion = replace_levels(cregion), 
+            age_bin, 
+            sex = replace_levels(sex), 
+            pol.party = replace_levels(pol.party),
+            internet.freq = replace_levels(internet.freq)) %>%
+  # sample_n(500) %>%
+  parcoords(
+    color = list(
+      colorBy = "internet.freq"
+    ),
+    alpha = 0.1,
+    brushMode = "1d",
+    withD3 = TRUE,
+    bundleDimension = "internet.freq",
+    bundlingStrength = 0.5,
+    smoothness = 0.15,
+    rownames = F,
+    reorderable = TRUE, 
+  )
+```
