@@ -76,7 +76,7 @@ Now we look at 2019.
 ```{r }
 core_trends_filtered %>% 
   filter(year==2019) %>%
-  extracat::visna(, sort="b") + theme_gray(16)
+  extracat::visna(, sort="b") 
 ```
 
 In 2019, we observe only 2 missing patterns. All the 3 variables "social media use", "society overall" and "depend on social media" are missing for all data. Perhaps, these are the questions were not asked in the 2019 survey. However, 5% of data for internet frequency is missing along with other variables.
