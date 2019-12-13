@@ -24,7 +24,6 @@ editor_options:
 
 It is no surprise that the internet is a quintessential aspect of modern life. In 2018, more than 77% of Americans over the age of 18 used the internet at least once per day, and in 2019 that number rose to over 82%. The United States has a $290 Billion digital infrastructure in place, capable of delivering speeds of many gigbits per second.^[https://www.ncta.com/broadband-by-the-numbers] When there is this much bandwidth to go arround, two major questions come to mind: *Who has internet access? And what are they doing with it?* These simple questions are perhaps answered with Occum's razor-esque answers: 
 
-
 **Everyone has internet access. Everyone is on Facebook.**
 
 While the above is an exageration, despite the small scope of this analysis by only having access to 2018 and 2019 data, we will find our Facebook claim to be remarkably close to the truth (at least with this survey). 
