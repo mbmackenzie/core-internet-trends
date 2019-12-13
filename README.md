@@ -12,7 +12,7 @@ Exploratory Data Analysis and Visualization - Fall 2019
 ├── README.md
 ├── analysis
 │   ├── R
-│   └── initial
+│   └── scratch
 ├── data
 │   ├── core_trends_2018_survey.docx
 │   ├── core_trends_2019_survey.docx
