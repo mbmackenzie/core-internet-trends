@@ -3,6 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
+
 # Data Sources
 
 ```{r echo=FALSE}
@@ -53,13 +54,18 @@ rbind(sum2018, sum2019) %>%
   tbl_df() %>%
   gather(Property, value, -year) %>%
   spread(year, value) %>%
-  filter(Property != "memory_usage") %>%
+  filter(Property != "memory_usage", 
+         Property != "discrete_columns", 
+         Property != "continuous_columns") %>%
   slice(match(order, Property)) %>%
   knitr::kable()
 ```
 
+The majority of coulumns are discrete in nature, as the possible answers are limited to specific responses allowed by the interviewer. Age is open to any value less than or equal to 97. This makes analysis particularly interesting since there only categorical values.
 
+## Downloading the Data
 
+The data for each year was downloaded separately from Pew Reasearch's website (links at top of page) as zip files. After extraction, both a CSV and SAS file containing the raw data were included. Also included were the questions asked, summary data files, and in 2018 the methodology document. The SAS file and CSV file only differed in the fact the SAS file used labeled data frames. 
 
 
 

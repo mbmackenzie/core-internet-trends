@@ -1,3 +1,172 @@
+---
+output:
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+---
+
 # Missing Values
 
-Missing Values
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = 'center'
+)
+```
+
+```{r}
+library(tidyverse)
+library(mi) 
+library(extracat)
+library(imputeTS)
+library(ggthemes)
+
+core_trends = read_csv("data/tidy/core_trends.csv")
+
+core_trends_filtered <- core_trends %>%
+  select(year,
+         state,
+         age,
+         education,
+         employment,
+         house.income,
+         race,
+         internet.freq,
+         sm.use,
+         depend.sm,
+         society.overall) %>%
+  as.data.frame()
+
+```
+
+In the missing pattern analysis, we have considered some important responses which are mainly core data to figure out the trends. The selected variables are year, state, age, education, employment, house. income, race, internet.freq, sm.use, society.overall and depend.sm.
+
+```{r}
+ct_mi <- mi::missing_data.frame(core_trends_filtered)
+
+image(ct_mi)
+
+levels(ct_mi@patterns) %>%
+  knitr::kable(col.names = "Missing Patterns", align = "c")
+```
+
+
+Taking all together, we have identified that a large number of missing values are in the variable of social media use, overall society, and dependency on social media. Some values are also missing in the frequency of internet use.
+
+We then try to analyze the missing value by dividing it into groups by year.
+
+## Missing Value Patterns
+
+We begin by looking at the missing data by year. First 2018.
+
+```{r }
+core_trends_filtered %>% 
+  filter(year==2018) %>%
+  extracat::visna(sort="b")
+```
+
+In 2018, all the missing values are for the variables "dependent on social media" and "internet frequency"
+More than 5% of the data is missing for both the variables. Nearly 75% of the data is missing for nothing.
+ 
+Now we look at 2019.
+
+```{r }
+core_trends_filtered %>% 
+  filter(year==2019) %>%
+  extracat::visna(, sort="b") + theme_gray(16)
+```
+
+In 2019, we observe only 2 missing patterns. All the 3 variables "social media use", "society overall" and "depend on social media" are missing for all data. Perhaps, these are the questions were not asked in the 2019 survey. However, 5% of data for internet frequency is missing along with other variables.
+
+Apart from missing data, we have also analyzed the data where responded refused to answer or chose an answer as "Don't know"
+
+## "Don't Know" Response Patterns
+
+```{r}
+trends2018 <- na_replace(core_trends_filtered, 0) %>% 
+  filter(year==2018)%>% 
+  select(-year,-state)
+ 
+trends2019 <- na_replace(core_trends_filtered, 0) %>% 
+  filter(year==2019)%>% 
+  select(-year,-state)
+```
+
+1) 2018
+
+```{r}
+trends2018_dntknw = trends2018
+trends2018_dntknw$education[trends2018_dntknw$education == 98] <- NA
+trends2018_dntknw$employment[trends2018_dntknw$employment == 98] <- NA
+trends2018_dntknw$house.income[trends2018_dntknw$house.income == 98] <- NA
+trends2018_dntknw$race[trends2018_dntknw$race == 8] <- NA
+trends2018_dntknw$internet.freq[trends2018_dntknw$internet.freq == 8] <- NA
+trends2018_dntknw$sm.use[trends2018_dntknw$sm.use == 8] <- NA
+trends2018_dntknw$society.overall[trends2018_dntknw$society.overall == 8] <- NA
+trends2018_dntknw$depend.sm[trends2018_dntknw$depend.sm == 8] <- NA
+
+extracat::visna(trends2018_dntknw, sort="b")
+```
+
+2) 2019
+
+```{r}
+trends2019_dntknw = trends2019
+
+trends2019_dntknw$education[trends2019_dntknw$education == 98] <- NA
+trends2019_dntknw$employment[trends2019_dntknw$employment == 98] <- NA
+trends2019_dntknw$house.income[trends2019_dntknw$house.income == 98] <- NA
+trends2019_dntknw$race[trends2019_dntknw$race == 8] <- NA
+trends2019_dntknw$internet.freq[trends2019_dntknw$internet.freq == 8] <- NA
+trends2019_dntknw$sm.use[trends2019_dntknw$sm.use == 8] <- NA
+trends2019_dntknw$society.overall[trends2019_dntknw$society.overall == 8] <- NA
+trends2019_dntknw$depend.sm[trends2019_dntknw$depend.sm == 8] <- NA
+
+extracat::visna(trends2019_dntknw, sort="b")
+```
+
+In 2018, we see that a number of people answered: "Don't Know" for the response of house.income, race, education, social.overall and internet.freq. There is also a few people answered "Don't Know" for employment. But in 2019, relatively fewer people answered "Don't Know"
+
+
+## "Refused" Response Patterns
+
+1) 2018
+
+```{r}
+trends2018_refused = trends2018
+
+trends2018_refused$education[trends2018_refused$education == 99] <- NA
+trends2018_refused$employment[trends2018_refused$employment == 99] <- NA
+trends2018_refused$house.income[trends2018_refused$house.income == 99] <- NA
+trends2018_refused$race[trends2018_refused$race == 9] <- NA
+trends2018_refused$internet.freq[trends2018_refused$internet.freq == 9] <- NA
+trends2018_refused$sm.use[trends2018_refused$sm.use == 9] <- NA
+trends2018_refused$society.overall[trends2018_refused$society.overall == 9] <- NA
+trends2018_refused$depend.sm[trends2018_refused$depend.sm == 9] <- NA
+
+extracat::visna(trends2018_refused, sort="b")
+```
+
+2) 2019
+
+```{r}
+trends2019_refused = trends2019
+
+trends2019_refused$education[trends2019_refused$education == 99] <- NA
+trends2019_refused$employment[trends2019_refused$employment == 99] <- NA
+trends2019_refused$house.income[trends2019_refused$house.income == 99] <- NA
+trends2019_refused$race[trends2019_refused$race == 9] <- NA
+trends2019_refused$internet.freq[trends2019_refused$internet.freq == 9] <- NA
+trends2019_refused$sm.use[trends2019_refused$sm.use == 9] <- NA
+trends2019_refused$society.overall[trends2019_refused$society.overall == 9] <- NA
+trends2019_refused$depend.sm[trends2019_refused$depend.sm == 9] <- NA
+
+extracat::visna(trends2019_refused, sort="b")
+```
+
+
+In 2018, a lot of people refused to answer on house income, race, education, and employment. We also see the same pattern of response in 2019.
+

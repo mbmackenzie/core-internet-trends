@@ -4,16 +4,9 @@
 # References {-}
 '`
 
-```{r include=FALSE}
-bib = knitr::write_bib(c(
-  .packages(), 'blogdown', 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'servr', 'xaringan', 'animation', 'pkgdown', 'tinytex', 'reticulate', 'JuliaCall', 'DT', 'leaflet', 'dygraphs', 'shiny', 'markdown', 'flexdashboard', 'tufte', 'revealjs', 'prettydoc', 'htmltools', 'rticles', 'learnr', 'rmdformats'
-), file = NULL)
-bib = unlist(bib)
-bib = gsub("'(Htmlwidgets|iframes|TeX Live|LaTeX)'", '\\1', bib)
-xfun::write_utf8(bib, 'packages.bib')
-# embed fonts
-if (knitr::is_latex_output()) {
-  pdfs = list.files(knitr::opts_chunk$get('fig.path'), '[.]pdf$', full.names = TRUE)
-  invisible(lapply(pdfs, embedFonts))
-}
+```{r echo=FALSE, warning=FALSE}
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse', 'HH', 'ggthemes', 'cowplot', 'tidytext', 'wordcloud', 'Gmisc', 'parcoords', 'mi', 'extracat', 'imputeTS'
+))
 ```
+

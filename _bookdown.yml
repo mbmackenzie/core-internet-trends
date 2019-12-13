@@ -2,6 +2,7 @@ book_filename: "Analysis of Internet Core Trends"
 language:
   ui:
     chapter_name: "Chapter "
+clean: [packages.bib, book.bib]
 delete_merged_file: true
 new_session: yes
 rmd_files:
