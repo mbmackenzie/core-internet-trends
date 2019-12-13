@@ -13,6 +13,9 @@ Imports:
   ggthemes, 
   cowplot,
   wordcloud,
-  Gmisc,
   vcd,
-  parcoords
+  parcoords,
+  mi,
+  imputeTS,
+  iterators,
+  TSP
