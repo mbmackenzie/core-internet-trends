@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Data Transformation | Analysis of Internet Core Trends</title>
   <meta name="description" content="The Internet Core Trends survey contains information of how americans view and use the internet." />
-  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Data Transformation | Analysis of Internet Core Trends" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Woo Jin Kim, Matt Mackenzie, Mamunur Rashid" />
 
 
-<meta name="date" content="2019-12-11" />
+<meta name="date" content="2019-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,8 +53,12 @@
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/r2d3-render-0.1.0/r2d3-render.js"></script>
 <script src="libs/webcomponents-2.0.0/webcomponents.js"></script>
-<script src="libs/r2d3-binding-0.2.4/r2d3.js"></script>
-<script src="libs/d3v5-5.9.2/d3.min.js"></script>
+<script src="libs/r2d3-binding-0.2.3/r2d3.js"></script>
+<script src="libs/d3v5-5.0.0/d3.min.js"></script>
+<link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet" />
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script>
+<script src="libs/d3-5.10.0/d3.min.js"></script>
+<script src="libs/sylvester-0.1.3/sylvester.js"></script>
 
 
 
@@ -71,18 +75,45 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Analysis of Internet Core Trends</a></li>
+<li><a href="./">Analysis of Core Trends Survey</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>1</b> Data Sources</a></li>
-<li class="chapter" data-level="2" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>2</b> Data Transformation</a></li>
-<li class="chapter" data-level="3" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>3</b> Missing Values</a></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>0.1</b> Background</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#the-analysis"><i class="fa fa-check"></i><b>0.2</b> The Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>1</b> Data Sources</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-sources.html"><a href="data-sources.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="data-sources.html"><a href="data-sources.html#pew-reseach-center"><i class="fa fa-check"></i><b>1.2</b> Pew Reseach Center</a></li>
+<li class="chapter" data-level="1.3" data-path="data-sources.html"><a href="data-sources.html#methodology"><i class="fa fa-check"></i><b>1.3</b> Methodology</a></li>
+<li class="chapter" data-level="1.4" data-path="data-sources.html"><a href="data-sources.html#dataset-profile"><i class="fa fa-check"></i><b>1.4</b> Dataset Profile</a></li>
+<li class="chapter" data-level="1.5" data-path="data-sources.html"><a href="data-sources.html#downloading-the-data"><i class="fa fa-check"></i><b>1.5</b> Downloading the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>2</b> Data Transformation</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-transformation.html"><a href="data-transformation.html#creating-the-data-dictionary"><i class="fa fa-check"></i><b>2.1</b> Creating the Data Dictionary</a></li>
+<li class="chapter" data-level="2.2" data-path="data-transformation.html"><a href="data-transformation.html#renaming-the-variables"><i class="fa fa-check"></i><b>2.2</b> Renaming the Variables</a></li>
+<li class="chapter" data-level="2.3" data-path="data-transformation.html"><a href="data-transformation.html#keeing-the-data-wide"><i class="fa fa-check"></i><b>2.3</b> Keeing the Data Wide</a></li>
+<li class="chapter" data-level="2.4" data-path="data-transformation.html"><a href="data-transformation.html#preprocessing-age"><i class="fa fa-check"></i><b>2.4</b> Preprocessing Age</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>3</b> Missing Values</a><ul>
+<li class="chapter" data-level="3.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-patterns"><i class="fa fa-check"></i><b>3.1</b> Missing Value Patterns</a></li>
+<li class="chapter" data-level="3.2" data-path="missing-values.html"><a href="missing-values.html#dont-know-response-patterns"><i class="fa fa-check"></i><b>3.2</b> “Don’t Know” Response Patterns</a></li>
+<li class="chapter" data-level="3.3" data-path="missing-values.html"><a href="missing-values.html#refused-response-patterns"><i class="fa fa-check"></i><b>3.3</b> “Refused” Response Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a><ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#internet-usage"><i class="fa fa-check"></i><b>4.1</b> Internet Usage</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="results.html"><a href="results.html#connectivity"><i class="fa fa-check"></i><b>4.1.1</b> Connectivity</a></li>
+<li class="chapter" data-level="4.1.2" data-path="results.html"><a href="results.html#interent-as-a-whole"><i class="fa fa-check"></i><b>4.1.2</b> Interent as a Whole</a></li>
+<li class="chapter" data-level="4.1.3" data-path="results.html"><a href="results.html#social-media-usage"><i class="fa fa-check"></i><b>4.1.3</b> Social Media Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#demographics-age-income-and-the-internet"><i class="fa fa-check"></i><b>4.2</b> Demographics: Age, Income, and the Internet</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#socieys-opinion-internet-impact-on-society"><i class="fa fa-check"></i><b>4.3</b> Sociey’s Opinion: Internet Impact on Society</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive Component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="data-dictionary.html"><a href="data-dictionary.html"><i class="fa fa-check"></i><b>A</b> Data Dictionary</a></li>
+<li class="chapter" data-level="B" data-path="interesting-plots.html"><a href="interesting-plots.html"><i class="fa fa-check"></i><b>B</b> Interesting Plots</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -106,8 +137,25 @@
             <section class="normal" id="section-">
 <div id="data-transformation" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Data Transformation</h1>
-<p>Data Transformation</p>
+<div id="creating-the-data-dictionary" class="section level2">
+<h2><span class="header-section-number">2.1</span> Creating the Data Dictionary</h2>
+<p>To begin the transformation process, we found it most usefull to create a data dictionary since there were many variables each with many different possible values. To do this, we went through each survey document as well as the data to keep track of variable names, question, and possible values. After this, we recorded each in a CSV file the we could then use in later scripts.</p>
+<p>The first script (format_data_dictionary.R) was used to parse the CSV file and format the tables seen in Appendix A. The next script (replace_levels.R) contains functions that allow us to replace the numerical values of a column with the textual representation with ease. Throughout the analysis process, we found it easiser to filter based on the numerical values, and then transform the levels.</p>
+</div>
+<div id="renaming-the-variables" class="section level2">
+<h2><span class="header-section-number">2.2</span> Renaming the Variables</h2>
+<p>Many of the names used in the raw data were quite cryptic. We used the tidying process to rename variables to be grouped by what they were discussing, and be easily selectable if we wanted to look at a group of varibles. We settled on 9 groups: Identifiers, Demographics, Devices, Internet, Social Media, Depenence, Society, Books, and Other. These groups are reflected in the Data Dictionary in Appendix A. The variables were manually changed in our preprocessing script, tidy_data.R.</p>
+<p>The second reason for renaming the varibles was to ensure that we could properly overlap the data from 2018 and 2019. As some variable did or didn’t exist from year to year, or the varible names might change, we dealt with this before it became a problem.</p>
+</div>
+<div id="keeing-the-data-wide" class="section level2">
+<h2><span class="header-section-number">2.3</span> Keeing the Data Wide</h2>
+<p>We decided to keep the data in a “wide” format. There were so many features that it was actually easier to just filter by column as we needed it, and then perform any gathering that we may need to do.</p>
+</div>
+<div id="preprocessing-age" class="section level2">
+<h2><span class="header-section-number">2.4</span> Preprocessing Age</h2>
+<p>Much of the time, the actual age of repondents was to granular to work with. We tried binning the age in different ways, but eventually settled on the age groups 18 to 34, 35 to 64, and 65 over 65 (inclusive). We felt this was enough to show anything interesting relating to differences in age. It also captures much of the generational differeneces we see today, mainly millenials, generation X, and baby boomers.</p>
 
+</div>
 </div>
             </section>
 
@@ -131,9 +179,9 @@
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -146,7 +194,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/mbmackenzie/edav-f19-final/edit/master/pages/data_transformation.Rmd",
+"link": "https://github.com/mbmackenzie/edav-f19-final/edit/master/data_transformation.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -154,12 +202,12 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/mbmackenzie/edav-f19-final/glob/master/data_transformation.Rmd",
 "text": null
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

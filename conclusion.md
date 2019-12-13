@@ -1,0 +1,8 @@
+# Conclusion
+
+In 2002, a study published by Norman Nie and Lutz Erbring from Stanford describes the internet as a "giant public library with a decidedly commercial tilt." The study found that only 38% of Americans over 18 accessed the internet at home, and a max 55% of adults have access to the internet at all. The paper proceeds to claim that the more people use the internet, the less time they spend with friends and families.^[[Interent and Society](http://www.nomads.usp.br/documentos/textos/cultura_digital/tics_arq_urb/internet_society%20report.pdf)]
+
+In 2019, we see a dramatic rise in the number of people that have access to internet at home to over 80%. Most people spend their time on the interent on YouTube and Facebook, two sites that are very much about connecting people from all over the globe. The data in this survey do not point to a trend of losing pysical touch with other humans, but it does point to the desire to gain a digital touch. 
+
+We saw that social media is more easy to give up than the internet, however we also saw that even people who claim they do not use the internet very frequenyly primarily spend their time on social media sites. There is a discrepency in this. How can people be primarity using social media sites but at the same time be so willing to give it up? This seemingly paradoxical idea suggests that people know something new will always come around. They may be willing to give up the current sites, but if the question had been phrased in such a way that social media would be lost to them forever, we believe the reponses would have been very much shifted towards the "impossible" answer. 
+

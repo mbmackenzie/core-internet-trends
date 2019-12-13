@@ -6,8 +6,8 @@ function R2D3(el, width, height) {
   self.data = null;
   self.shadow = null;
   self.root = self.svg = self.canvas = null;
-  self.width = width;
-  self.height = height;
+  self.width = 0;
+  self.height = 0;
   self.options = null;
   self.resizer = null;
   self.renderer = null;
@@ -283,6 +283,8 @@ function R2D3(el, width, height) {
   
   self.widgetRender = function(x) {
     self.setX(x);
+    self.setWidth(width);
+    self.setHeight(height);
     
     if (!self.root) {
       self.setVersion(x.version);
