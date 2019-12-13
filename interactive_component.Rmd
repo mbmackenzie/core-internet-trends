@@ -32,7 +32,9 @@ tidy <- data %>%
 json <- toJSON(tidy, dataframe = "rows")
 ```
 
-Description
+Explore the US states by how much they use different types of social media platforms. To interact with the visualization, just hover over any state, and a pop up will appear with information relating to the userbase of the currently selected application for that state. To change the social media application, just click on any of the icons in the top left to select it. The selected application will apper highlighted the color of the social media. The same mechanic goes for selecting the year, but the year will be highlighted green. After you comfortable there are a set of keyboard controls to try as well. They are described under the visual. The point of the keyboard contols is to keep your mouse hovered over a state, and toggle different apps and years to see how the usebase changes. 
+
+The value of interest that decides the color of the state is the percentage of people that respond they use that form of social media.
 
 > Note: Only states with more that 5 respondents are included, others are colored grey.
 

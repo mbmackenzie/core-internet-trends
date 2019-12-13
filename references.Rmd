@@ -1,12 +1,19 @@
-\backmatter
-
 `r if (knitr::is_html_output()) '
 # References {-}
 '`
 
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+require("knitcitations")
+```
+
 ```{r echo=FALSE, warning=FALSE}
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse', 'HH', 'ggthemes', 'cowplot', 'tidytext', 'wordcloud', 'Gmisc', 'parcoords', 'mi', 'extracat', 'imputeTS'
-))
+),file='packages.bib')
 ```
 
+```{r generateBibliography, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+cleanbib()
+options("citation_format" = "pandoc")
+read.bibtex(file = "packages.bib")
+```

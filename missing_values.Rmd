@@ -44,7 +44,7 @@ core_trends_filtered <- core_trends %>%
 
 In the missing pattern analysis, we have considered some important responses which are mainly core data to figure out the trends. The selected variables are year, state, age, education, employment, house. income, race, internet.freq, sm.use, society.overall and depend.sm.
 
-```{r}
+```{r }
 ct_mi <- mi::missing_data.frame(core_trends_filtered)
 
 image(ct_mi)
@@ -95,7 +95,7 @@ trends2019 <- na_replace(core_trends_filtered, 0) %>%
   select(-year,-state)
 ```
 
-1) 2018
+### "Don't know" 2018
 
 ```{r}
 trends2018_dntknw = trends2018
@@ -111,7 +111,7 @@ trends2018_dntknw$depend.sm[trends2018_dntknw$depend.sm == 8] <- NA
 extracat::visna(trends2018_dntknw, sort="b")
 ```
 
-2) 2019
+### "Don't know" 2019
 
 ```{r}
 trends2019_dntknw = trends2019
@@ -133,7 +133,7 @@ In 2018, we see that a number of people answered: "Don't Know" for the response 
 
 ## "Refused" Response Patterns
 
-1) 2018
+### "Refused" 2018
 
 ```{r}
 trends2018_refused = trends2018
@@ -150,7 +150,7 @@ trends2018_refused$depend.sm[trends2018_refused$depend.sm == 9] <- NA
 extracat::visna(trends2018_refused, sort="b")
 ```
 
-2) 2019
+### "Refused" 2019
 
 ```{r}
 trends2019_refused = trends2019
