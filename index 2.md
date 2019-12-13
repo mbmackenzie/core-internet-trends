@@ -1,7 +1,7 @@
 --- 
 title: "Analysis of Internet Core Trends"
 author: "Woo Jin Kim, Matt Mackenzie, Mamunur Rashid"
-date: "2019-12-13"
+date: "2019-12-12"
 description: "The Internet Core Trends survey contains information of how americans view and use the internet."
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -18,7 +18,7 @@ editor_options:
 
 
 
-# Introduction
+# Introduction {-}
 
 It is no surprise that the internet is a quintessential aspect of modern life. In 2018, more than 77% of Americans over the age of 18 used the internet at least once per day, and in 2019 that number rose to over 82%. The United States has a $290 Billion digital infrastructure in place, capable of delivering speeds of many gigbits per second.^[https://www.ncta.com/broadband-by-the-numbers] When there is this much bandwidth to go arround, two major questions come to mind: *Who has internet access? And what are they doing with it?* These simple questions are perhaps answered with Occum's razor-esque answers: 
 

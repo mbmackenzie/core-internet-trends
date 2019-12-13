@@ -50,6 +50,10 @@ Now we look at 2019.
 
 <img src="missing_values_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
 
+```
+## NULL
+```
+
 In 2019, we observe only 2 missing patterns. All the 3 variables "social media use", "society overall" and "depend on social media" are missing for all data. Perhaps, these are the questions were not asked in the 2019 survey. However, 5% of data for internet frequency is missing along with other variables.
 
 Apart from missing data, we have also analyzed the data where responded refused to answer or chose an answer as "Don't know"
@@ -58,11 +62,11 @@ Apart from missing data, we have also analyzed the data where responded refused 
 
 
 
-### "Don't know" 2018
+1) 2018
 
 <img src="missing_values_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" />
 
-### "Don't know" 2019
+2) 2019
 
 <img src="missing_values_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
 
@@ -71,11 +75,11 @@ In 2018, we see that a number of people answered: "Don't Know" for the response 
 
 ## "Refused" Response Patterns
 
-### "Refused" 2018
+1) 2018
 
 <img src="missing_values_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" />
 
-### "Refused" 2019
+2) 2019
 
 <img src="missing_values_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" />
 
